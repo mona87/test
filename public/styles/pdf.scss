@@ -1,0 +1,269 @@
+@font-face {
+  font-family: 'Klavika';
+  font-weight: normal;
+  src: url("../fonts/klavika/Klavika-Light.otf"); }
+
+  body{
+  	font-family: 'Klavika','sans-serif';
+  }
+
+.nav{
+	display: flex;
+	height: 100px;
+	/*background-color: black;*/
+	width: 100%;
+	align-items: center;
+	color: white;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+
+
+
+.nav--logo{
+	height: 40px;
+	background-repeat: no-repeat;
+	margin-left: 40px;
+	opacity: 1;
+}
+
+.nav--font-size{
+	font-size: 20px;
+}
+
+.section-one{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 350px;
+	flex-direction: column;
+}
+
+.section-one-part-two{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+	flex-direction: column;
+}
+
+.section-one__wrapper{
+	max-width: 980px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+.section-one-part-two__wrapper-two{
+	max-width: 1100px;
+	width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+
+}
+
+.section-one--img1{
+	background-repeat: no-repeat;
+	width: 100%;
+	/*height: 260px;*/
+    box-sizing: border-box;
+
+}
+
+.section-one-part-two--img2{
+	background: url('../images/pdfImages/blocks.svg');
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 200px;
+	
+}
+
+.section-two{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width:100%;
+	height: 400px;
+}
+
+.section-two--bgImage{
+	background: url('../images/background.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: -1;
+	position: relative;
+}
+
+.section-two--filter:before{
+	content: '';
+	height: 400px;
+	position: absolute;
+	top: 0px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+  	background-image:linear-gradient(to right, #CD1B5C, #803687);
+  	opacity: .7;
+}
+
+.section-two__wrapper{
+	display: flex;
+	max-width: 980px;
+	width: 90%;
+	min-height: 250px;
+	height: 90%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.section-three{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #2A2C30;
+	width: 100%;
+	height: 400px;
+}
+
+.section-three__wrapper{
+	display: flex;
+	max-width: 980px;
+	justify-content: center;
+    align-items: center;
+	width: 90%;
+	height: 90%;
+}
+
+.section-three__text{
+	height: 250px;
+	width: 100%;
+	background-repeat: no-repeat;
+}
+
+.section-four{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 400px;
+}
+
+.section-four__text{
+	margin-right: 420px;
+	width: 100%;
+	height: 200px;
+	background-repeat: no-repeat;
+}
+
+.section-four___wrapper{
+	height: 90%;
+	width: 90%;	
+    max-width: 980px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.section-four__computer{
+	background: url('../images/pdfImages/computer.svg');
+	width: 75%;
+	height: 600px;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: -80px;	
+    left: 310px;
+    background-size: cover;
+
+}
+
+.footer{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 175px;
+	width: 100%;
+	background-color: #2A2C30;
+}
+
+.footer__wrapper{
+	display: flex;
+	width: 35%;
+	height: 60%;
+	max-width: 980px;
+    align-items: center;
+
+}
+
+.footer__text{
+	background-repeat: no-repeat;
+	height: 65px;
+	width: 100%;
+}
+
+.nav--bgImage{
+	background: url('../images/background.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: -3;
+	height: 100px;
+	width: 1500px;
+}
+.nav--bgImage--filter:before{
+	content: '';
+	position: absolute;
+	top:0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: .7;
+	height: 100px;
+	width: 100%;
+	background-color: #000;
+	z-index: -2;
+}
+
+.nav__blue-slash{
+	background: url('../images/blue-slash.svg');
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 1%;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.nav--padding{
+	margin-right: 40px
+}
+
+
+.container{
+	width: 1500px;
+}
+
+.section-two__text{
+	position: relative;
+	width: 100%;
+	height: 250px;
+
+}
+.nav__wrapper{
+	display: flex;
+	flex: 1 0 0;
+	height: 90%;
+	width: 90%;
+	align-items: center;
+	justify-content: flex-start;
+}

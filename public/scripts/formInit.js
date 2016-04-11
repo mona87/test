@@ -1,3 +1,7 @@
+		//insert pdf into main html  
+      // $("#pdf").load("pdf.html", function(){
+    
+      // });
 	
 //after submitting form
 var theForm = document.getElementById( 'theForm' );

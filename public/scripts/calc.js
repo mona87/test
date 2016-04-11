@@ -87,13 +87,14 @@ $(function(){
 
 		//update dom with values
 
-		$('#inefficeincyCosts').html(numeral(churnCosts).format('$0,0') + ' M');
-		$('#gains').html(numeral(churnReduction).format('$0,0') + ' M');
-		$('#roi').html(Math.round((ROI.toFixed(2)) * 100)+ '% ROI');
+		//section2 values
+		$('.section-two__value-one').html(numeral(churnCosts).format('(0.0 a)'));
+		$('.section-two__value-two').html(numeral(churnReduction).format('(0.0 a)'));
+		$('.section-two__value-three').html(Math.round((ROI.toFixed(2)) * 100)+ '% ROI');
 
-		// $('#losses').html(numeral().format('$0,0'));
-		// $('#variance').html(numeral(productivityVariance).format('$0,0'));
-		// $('#costPerHire').html(numeral(costPerAgent).format('$0,0'));
+		// $('#value-one').html(numeral().format('$0,0'));
+		$('#value-two').html(numeral(productivityVariance).format('$0,0'));
+		$('#value-three').html(numeral(costPerAgent).format('$0,0'));
 
 	}
 

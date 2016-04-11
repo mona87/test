@@ -23,14 +23,13 @@
 }
 @font-face {
   font-family: 'Klavika';
-  font-weight: lighter;
   font-style: italic;
   src: url('../fonts/klavika/Klavika-LightItalic.otf'); 
 }
 @font-face {
   font-family: 'Klavika';
-  font-weight: medium;
-  font-style: italic;
+  font-style: oblique;
+  /*font-style: italic;*/
   src: url('../fonts/klavika/Klavika-MediumItalic.otf'); 
 }
 
@@ -67,10 +66,11 @@ h1{
 	position: absolute;
 	font-size: 20px;
 	top: 0;
-	display: none;
+	/*display: none;*/
 }
 
 .arrow-down {
+	cursor: pointer;
 	width: 0;
 	height: 0;
 	border-style: solid;
@@ -93,11 +93,13 @@ nav span{
 .bgImg{
 	background: url('../images/background.png');
 	background-size: cover;
+	background-position: 0;
 	background-repeat: no-repeat;
-	-webkit-filter: brightness(.3);
+	-webkit-filter: brightness(.5);
 	position: absolute;
 	z-index: -100;
-	width: initial;
+	height: 800px;
+	width: 100%;
 }
 
 #page1{
@@ -105,6 +107,7 @@ nav span{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	opacity: .9;
 	/*border: 1px solid red;*/
 	/*position: relative;*/
 	overflow: hidden;
@@ -112,7 +115,7 @@ nav span{
 	color: white;
 	transition: .4s all ease;
 	/*display: none;*/
-	/*background-color: black;*/
+	background-color: black;
 }
 #page1 h1{
 	font-weight: medium;
@@ -176,10 +179,6 @@ nav span{
 	padding-bottom: 100px;
 }
 
-#main2 h4{
-	color: #03929D;
-}
-
 #main4{
 	background-color: #2A2C30;
 	display: flex;
@@ -230,12 +229,14 @@ nav span{
 
 
 .values{
+	max-width: 980px;
 	display: flex;
 	width: 100%;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
 	height: 300px;
+	margin-top: 50px;
 }
 
 #inefficientCosts{
@@ -243,16 +244,11 @@ nav span{
 	font-weight: normal;
 }
 
-#inefficientCosts span, #gains span{
-	width: 150px;
-	display: block;
-}
-
 #gains{
 	color:#03929D;
 }
 
-.values div{
+.values > div{
 	min-width: 250px;
 	height: 150px;
 	border: 2px solid #E6E7E8;
@@ -426,7 +422,7 @@ nav span{
     height: 100px;
     align-items: center;
     justify-content: space-around;
-/*    border: 1px solid white;*/
+    max-width: 980px;
     margin-top: 30px;
 
 }
@@ -511,17 +507,16 @@ nav span{
 	align-items: flex-end;
 	flex-direction: column;
 	width: 100%;
-	margin-top: 100px;
+	margin-top: 60px;
     margin-right: 100px;
     margin-bottom: 20px;
+    max-width: 980px;
+    font-style: oblique;
 
 }
 
 #recommendation div{
 	width: 360px;	
-    font-weight: bold;
-    font-style: italic;
-
 }
 
 #recommendation div:first-child{
@@ -533,6 +528,7 @@ nav span{
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	max-width: 980px;
 }
 
 #report-section form{
@@ -574,10 +570,61 @@ nav span{
 	margin-left: 60px;
 }
 
+.section-two__values{
+	font-size: 50px;
+	font-weight: bold;
+	color: #000;
+	font-style: normal;
+	display: inline-flex;
+
+}
+
+.section-two__dollar{
+	font-size: 30px;
+	color: #000;
+	font-weight: bold;
+
+}
+
+.section-two__text{
+	width: 150px;
+	display: block;
+	height: 38px;
+}
+
+#roi .section-two__text:last-child{
+    font-size: 25px;
+    padding-top: 10px;
+    font-style: italic;
+    color: #03929D;
+    width: 200px;
+}
+
+.section-two__arrow-up{
+	margin-top: 15px;
+	margin-right: 15px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 15px;
+	border-color: #D74154 transparent transparent transparent;
+}
+
+.section-two__arrow-down{
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid #03929D;
+	margin-top: 15px;
+	margin-right: 15px;
+}
+
+
 
 @media (min-width: 1000px){
 	.bgImg{
-		width:100%;
+		/*width:100%;*/
 	}
 }
 

@@ -5,14 +5,15 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<link rel="stylesheet" type="text/css" href="public/styles/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="public/styles/component.css" />
-			<link rel="stylesheet" type="text/css" href="public/styles/main.css">
-		<script src="public/scripts/modernizr.custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="styles/component.css" />
+			<link rel="stylesheet" type="text/css" href="styles/main.css">
+			<!-- <link rel="stylesheet" type="text/css" href="styles/pdf.css"> -->
+		<script src="scripts/modernizr.custom.js"></script>
 </head>
 <body >
 	<section id="page1">
-		<img class="bgImg" src="./public/images/background.png" >
+		<img class="bgImg" >
 		<section id="main1">
 		<h1>ROI Calculator<br/><span class="sub-title">for Agent Emotional Connection</span></h1>
 		<h2>What’s YOUR slice of it? Answer these four quick questions and find out: </h2>	
@@ -66,9 +67,28 @@
 			<div id="blue-bar"></div>
 			<h4>YOUR RESULTS:</h4>
 			<div class="values">
-				<div id="inefficientCosts">0<span>Agent Personality Inefficiency Costs</span></div>
-				<div id="gains">0<span>Workstyle Training Efficiency Gains</span></div>
-				<div id="roi">0<span>WITH WORKSTYLE</span></div>
+				<div id="inefficientCosts">
+						<span class="section-two__values">
+						<div class="section-two__arrow-up"></div>
+						<span class="section-two__dollar">$</span>
+							<span class="section-two__value-one">0</span>
+					</span>
+					<span class="section-two__text">Agent Personality Inefficiency Costs</span>
+				</div>
+				<div id="gains">
+					<span class="section-two__values">
+						<div class="section-two__arrow-down"></div>
+						<span class="section-two__dollar">$</span>
+							<span class="section-two__value-two">0</span>
+					</span>
+					<span class="section-two__text">Workstyle Training Efficiency Gains</span>
+				</div>
+				<div id="roi">
+					<span class="section-two__values">
+						<span class="section-two__value-three">0</span>
+					</span>
+					<span class="section-two__text">WITH WORKSTYLE</span>
+				</div>
 			</div>
 			<div id="arrow-1" class="arrow-yellow"></div>
 		</section>
@@ -152,13 +172,16 @@
 						<div>Blog</div>
 			</footer>
 	</section>
+	<div id="pdf"></div>
 			<script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
-			<script src="public/scripts/classie.js"></script>
-			<script src="public/scripts/stepsForm.js"></script> 
-			<script src="public/scripts/calc.js"></script>
+			<script src="scripts/classie.js"></script>
+			<script src="scripts/stepsForm.js"></script> 
+			<script src="scripts/calc.js"></script>
+
 			<!-- <script src="scripts/bundle.js"></script> -->
-			<script src="public/scripts/formInit.js"></script>
-			
+			<script src="scripts/formInit.js"></script>
+			 <!-- <script src="scripts/pdf-generator.js"></script> -->
+
 </body>
 </html>
