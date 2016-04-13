@@ -56,6 +56,9 @@
 		// next question control
 		this.ctrlNext = this.el.querySelector( 'button.next' );
 
+		// next question control
+		this.ctrlPrev = this.el.querySelector( 'button.prev' );
+
 		// progress bar
 		this.progress = this.el.querySelector( 'div.progress' );
 		
@@ -83,6 +86,7 @@
 			onFocusStartFn = function() {
 				firstElInput.removeEventListener( 'focus', onFocusStartFn );
 				classie.addClass( self.ctrlNext, 'show' );
+				classie.addClass( self.ctrlPrev, 'show' );
 			};
 
 		// show the next question control first time the input gets focused
@@ -92,6 +96,12 @@
 		this.ctrlNext.addEventListener( 'click', function( ev ) { 
 			ev.preventDefault();
 			self._nextQuestion(); 
+		} );
+
+		// show prev question
+		this.ctrlPrev.addEventListener( 'click', function( ev ) { 
+			ev.preventDefault();
+			self._prevQuestion(); 
 		} );
 
 		// pressing enter will jump to next question
@@ -113,6 +123,69 @@
 			} 
 		} );
 	};
+
+	stepsForm.prototype._prevQuestion = function() {
+		if( !this._validade() ) {
+			return false;
+		}
+
+		// current question
+		var currentQuestion = this.questions[ this.current ];
+		console.log(currentQuestion);
+
+		// decrement current question iterator
+		--this.current;
+
+		// if(this.current <1){
+		// 	this.ctrlPrev.style.display = 'none';
+		// }else{
+		// 	this.ctrlPrev.style.display = 'block';
+		// }
+
+		// update progress bar
+		this._progress();
+
+
+			//update numbers
+			this._updateQuestionNumber();
+			console.log(this.current);
+
+			// add class "show-next" to form element (start animations)
+			// classie.addClass( this.el, 'show-prev' );
+
+			// current question
+			var prevQuestion = this.questions[ this.current ];
+			classie.removeClass( currentQuestion, 'current' );
+			classie.addClass( prevQuestion, 'current' );
+			console.log(currentQuestion);
+
+	
+
+
+		var self = this, onEndTransitionFn = function( ev ) {
+				if( support.transitions ) {
+					this.removeEventListener( transEndEventName, onEndTransitionFn );
+				}
+				if( self.isFilled ) {
+					self._submit();
+				}
+				else {
+					// classie.removeClass( self.el, 'show-prev' );
+					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
+					self.questionStatus.removeChild( self.nextQuestionNum );
+					// force the focus on the next input
+					prevQuestion.querySelector( 'input' ).focus();
+				}
+			};
+
+		if( support.transitions ) {
+			this.progress.addEventListener( transEndEventName, onEndTransitionFn );
+		}
+		else {
+			onEndTransitionFn();
+		}
+
+	}
 
 	stepsForm.prototype._nextQuestion = function() {
 		if( !this._validade() ) {

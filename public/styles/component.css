@@ -9,6 +9,8 @@
 		url('../fonts/icomoon/icomoon.svg?-9heso#icomoon') format('svg');
 }
 
+
+
 @font-face {
   font-family: 'Klavika';
   font-style: italic;
@@ -94,6 +96,11 @@
 	animation: moveUpFromDown 0.4s both;
 }
 
+.show-prev .questions li.current > span label {
+	-webkit-animation: moveDownFromUp 0.4s both;
+	animation: moveDownFromUp 0.4s both;
+}
+
 @-webkit-keyframes moveUpFromDown {
 	from { -webkit-transform: translateY(100%); }
 	to { -webkit-transform: translateY(0); }
@@ -102,6 +109,16 @@
 @keyframes moveUpFromDown {
 	from { -webkit-transform: translateY(100%); transform: translateY(100%); }
 	to { -webkit-transform: translateY(0); transform: translateY(0); }
+}
+
+@-webkit-keyframes moveDownFromUp {
+	from { -webkit-transform: translateY(0); }
+	to { -webkit-transform: translateY(100%); }
+}
+
+@keyframes moveDownFromUp {
+	from { -webkit-transform: translateY(0); transform: translateY(0); }
+	to { -webkit-transform: translateY(100%); transform: translateY(100%); }
 }
 
 /* Input field */
@@ -244,11 +261,23 @@
 	transform: translateY(-100%);
 }
 
+/*.simform.show-prev .number-current {
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}*/
+
 .simform.show-next .number-next {
 	-webkit-animation: moveUpFromDown 0.4s both;
 	animation: moveUpFromDown 0.4s both;
 }
 
+/*.simform.show-prev .number-next {
+	-webkit-animation: moveDownFromUp 0.4s both;
+	animation: moveDownFromUp 0.4s both;
+}
+*/
 /* Error and final message */
 .simform .error-message,
 .simform .final-message {
@@ -326,6 +355,10 @@
 	color: white;
 	 font-family: 'Klavika';
 	 font-style: italic;
+}
+
+.icon-arrow-left2:before {
+    content: "\e900";
 }
 
 /* Remove IE clear cross */

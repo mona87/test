@@ -1,8 +1,4 @@
-// var numeral = require('numeral');
-
 $(function(){
-
-	
 
 	var agentNum = null;
 	var trainingDaysNum = null;
@@ -53,52 +49,46 @@ $(function(){
 
 	function calculateROI(agentNumn, trainingDaysNum, churnNum, costPerHour ){
 
-		//assumptions
-		var costPerMin = costPerHour/60;
-		var trainingCost = trainingDaysNum * costPerMin * costPerHour;
+         var dailyAgentCost = costPerHour*8;
+         var annualAgentCost = 235 *8 * costPerHour;
+         var agentCost = agentNum * annualAgentCost;
 
-		//training
-		var cost = trainingDaysNum * 8 * costPerHour;
+         //churn cost
+         var trainingDays = trainingDaysNum * dailyAgentCost;
+         var proficiencyCost = .25 * annualAgentCost;
+         var newAgentCost = trainingDays + proficiencyCost;
+         var totalChurnCost = newAgentCost * 250;
+         var churnSavings = totalChurnCost * .1;
 
-		//time to Proficiency (235 days)
-		var annualBurdenCost = 235 * 8 * costPerHour;
-		var productivityVariance = .25;
-		var costPerAgent = annualBurdenCost * productivityVariance;
-		var incrementCost = costPerAgent + cost;
+         //workstyle cost
+         var setUpAgents = 100 * agentNum;
+         var setUpChurnAgents = (agentNum * churnNum) * 100;
+         var runningCost = 12 * 10 * agentNum;
+         var totalCost = setUpAgents + runningCost +  setUpChurnAgents ;
+         var averageCost = totalCost/500;
 
-		//workstyleCost 
-		var setUp = 100;
-		var monthlyUSD = 180;
-		var setupCosts = (agentNum * setUp) + (agentNum * churnNum * setUp);
-		var runningCosts = agentNum * monthlyUSD;
-		var total = setupCosts + runningCosts;
+         var ROI = totalChurnCost/totalCost;
 
-		//return on Investment
-		var churnCosts = agentNum * churnNum * incrementCost;
-		var churnReduction = .1 * churnCosts;
-		var workstyleCosts = total;
-		var ROI = churnReduction/workstyleCosts;
+        var workstyleCosts = churnSavings - totalCost;
+        
+        console.log('agentNum' + agentNum);
+        console.log('trainingDaysNum ' + trainingDaysNum);
+        console.log('churnNum ' + churnNum);
+        console.log('costPerHour ' + costPerHour);
 
-
-		console.log('churn costs: ' + churnCosts);
-		console.log('10% churn reduction: ' + churnReduction);
-		console.log('workstyle: ' + workstyleCosts);
-		console.log('ROI: ' + Math.round((ROI.toFixed(2)) * 100)+ '%');
 
 		//update dom with values
 
 		//section2 values
-		$('.section-two__value-one').html(numeral(churnCosts).format('(0.0 a)'));
-		$('.section-two__value-two').html(numeral(churnReduction).format('(0.0 a)'));
-		$('.section-two__value-three').html(Math.round((ROI.toFixed(2)) * 100)+ '% ROI');
+		$('.section-two__value-one').html(numeral(totalChurnCost).format('(0.0 a)'));
+		$('.section-two__value-two').html(numeral(churnSavings).format('(0.0 a)'));
+		$('.section-two__value-three').html(numeral(ROI).format('0%')+ ' ROI');
 
-		// $('#value-one').html(numeral().format('$0,0'));
-		$('#value-two').html(numeral(productivityVariance).format('$0,0'));
-		$('#value-three').html(numeral(costPerAgent).format('$0,0'));
+		$('#value-one').html(numeral(newAgentCost).format('$0,0'));
+		$('#value-two').html(numeral(agentCost).format('$0,0'));
+		$('#value-three').html(numeral(totalCost).format('$0,0'));
 
 	}
-
-
 });
 
 

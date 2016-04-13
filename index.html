@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>ROI Calculator</title>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" type="text/css" href="styles/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="styles/component.css" />
-			<link rel="stylesheet" type="text/css" href="styles/main.css">
-			<!-- <link rel="stylesheet" type="text/css" href="styles/pdf.css"> -->
+		<link rel="stylesheet" type="text/css" href="styles/main.css"/>
 		<script src="scripts/modernizr.custom.js"></script>
 </head>
 <body >
+
 	<section id="page1">
 		<img class="bgImg" >
 		<section id="main1">
-		<h1>ROI Calculator<br/><span class="sub-title">for Agent Emotional Connection</span></h1>
+		<h1>ROI Calculator<div class="sub-title">for Agent Emotional Connection</div></h1>
 		<h2>What’s YOUR slice of it? Answer these four quick questions and find out: </h2>	
 		<form id="theForm" class="simform" autocomplete="off">
 					<div class="simform-inner">
@@ -40,6 +40,7 @@
 						<button class="submit" type="submit">Send answers</button>
 						<div class="controls">
 							<button class="next"></button>
+							<button class="prev icon-arrow-left2"></button>
 							<div class="progress"></div>
 							<span class="number">
 								<span class="number-current"></span>
@@ -94,6 +95,7 @@
 		</section>
 
 		<section id="main3" class="office-img">
+
 			<h2>Keep the Agents. Lose the Expense.</h2>
 			<h3><span>Between training and ramp-up time, new hires drain your bottom line long before they contribute to it. And even experienced agents don’t click with every customer they talk to, dealing a blow to your customer experience.</span></h3>
 		</section>
@@ -114,34 +116,36 @@
 					<div class="values-equation"  id="value-three">$12,688</div>
 					<span>The number above is the total losses you face per new hire. This is a massive opportunity for return on investment with Workstyle.</span>
 				</div>
-				<!-- <div id="arrow-2" class="arrow-yellow"></div> -->
 		</section>
 		<section id="main5" class="office-img2">
+				<div class="arrow-yellow"></div>
 				<h1>The Result?</h1>
 				<h2>Workstyle shrinks the time between hire date and full output, and teaches ALL of your agents to naturally & easily connect with every customer, every time. 
 				</h2>
 				<div id="white-bar"></div>
 				<div class="icons">
 					<div class="icon-wrapper">
-						<div id="pig"></div>
+						<img id="pig" height="55" src="../images/pig-icon.svg"/>
 						<div class="icon-text">Lower training costs</div>
 					</div>
 					<div class="icon-wrapper">
-						<div id="graph"></div>
+						<img id="graph" height="52" src="../images/graph-icon.svg"/>
 						<div class="icon-text">Higher Productivity</div>
 					</div>
 					<div class="icon-wrapper">
-						<div id="headphones"></div>
+						<img id="headphones" height="52" src="../images/headphones-icon.svg"/>
 						<div class="icon-text">Engaged Agents</div>
 					</div>
 					<div class="icon-wrapper">
-						<div id="badge"></div>
+						<img id="badge" height="52" src="../images/badge-icon.svg" />
 						<div class="icon-text">Satisfied Customers</div>
 					</div>
 				</div>
+
 		</section>
-			<!-- <div class="arrow-yellow"></div> -->
+			
 			<section id="main6">
+
 				<h1>Get a Personalized Copy</h1>
 				<span id="sub-title2">of the Workstyle ROI Report</span>
 				<h2>Get a customized ROI report to share with your team instantly delivered to your inbox.</h2>
@@ -172,16 +176,15 @@
 						<div>Blog</div>
 			</footer>
 	</section>
-	<div id="pdf"></div>
+
+	<!-- <div id="pdf"></div> -->
 			<script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 			<script src="scripts/classie.js"></script>
 			<script src="scripts/stepsForm.js"></script> 
 			<script src="scripts/calc.js"></script>
-
-			<!-- <script src="scripts/bundle.js"></script> -->
+			<!-- <script src="public/bundle.js"></script> -->
 			<script src="scripts/formInit.js"></script>
-			 <!-- <script src="scripts/pdf-generator.js"></script> -->
 
 </body>
 </html>
