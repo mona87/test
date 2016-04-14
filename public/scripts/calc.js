@@ -67,7 +67,7 @@ $(function(){
          var totalCost = setUpAgents + runningCost +  setUpChurnAgents ;
          var averageCost = totalCost/500;
 
-         var ROI = totalChurnCost/totalCost;
+         var ROI = Math.round((totalChurnCost/totalCost).toFixed(2));
 
         var workstyleCosts = churnSavings - totalCost;
         

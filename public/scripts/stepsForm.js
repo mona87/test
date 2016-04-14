@@ -129,29 +129,49 @@
 			return false;
 		}
 
+		//reset count
+		if(this.current >= this.questions.length){
+			this.current = this.questions.length;
+
+		}
+
 		// current question
 		var currentQuestion = this.questions[ this.current ];
-		console.log(currentQuestion);
+		
+		//show and hide back arrow
+		if(this.current <= 1 ){
+			document.querySelector('.prev').style.display = 'none';
+
+		}else{
+				document.querySelector('.prev').style.display = 'block';
+		}
+
+		//show and hide next arrow
+		if(this.current === this.questions.length ){
+			document.querySelector('.next').style.display = 'none';
+		}else{
+			document.querySelector('.next').style.display = 'block';
+		}
 
 		// decrement current question iterator
 		--this.current;
-
-		// if(this.current <1){
-		// 	this.ctrlPrev.style.display = 'none';
-		// }else{
-		// 	this.ctrlPrev.style.display = 'block';
-		// }
 
 		// update progress bar
 		this._progress();
 
 
 			//update numbers
+
 			this._updateQuestionNumber();
-			console.log(this.current);
+			//hack to remove extra numbers from questionStatus
+			var elements = document.querySelectorAll('.number-next');
+			if(elements.length > 1){
+				this.questionStatus.removeChild(elements[0]);
+			}
+			console.log(this.questionStatus);
 
 			// add class "show-next" to form element (start animations)
-			// classie.addClass( this.el, 'show-prev' );
+			classie.addClass( this.el, 'show-next' );
 
 			// current question
 			var prevQuestion = this.questions[ this.current ];
@@ -166,11 +186,8 @@
 				if( support.transitions ) {
 					this.removeEventListener( transEndEventName, onEndTransitionFn );
 				}
-				if( self.isFilled ) {
-					self._submit();
-				}
 				else {
-					// classie.removeClass( self.el, 'show-prev' );
+					classie.removeClass( self.el, 'show-next' );
 					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
 					self.questionStatus.removeChild( self.nextQuestionNum );
 					// force the focus on the next input
@@ -192,6 +209,7 @@
 			return false;
 		}
 
+
 		// check if form is filled
 		if( this.current === this.questionsCount - 1 ) {
 			this.isFilled = true;
@@ -200,18 +218,50 @@
 		// clear any previous error messages
 		this._clearError();
 
+		//hide back button on first question
+		if(this.current < 0){
+			
+				document.querySelector('.prev').style.display = 'none';
+				
+		}else{
+				document.querySelector('.prev').style.display = 'block';
+			
+		}
+
+		if(this.current === this.questions.length - 1){
+			document.querySelector('.next').style.display = 'none';
+		}else{
+				document.querySelector('.next').style.display = 'block';
+		}
+
 		// current question
 		var currentQuestion = this.questions[ this.current ];
+	
+		if(this.current >= 3){
+			// increment current question iterator
+			++this.current;
+			// update progress bar to 100% and then reset to current
+			this._progress();
+			--this.current;
+
+		}else{
 
 		// increment current question iterator
 		++this.current;
-
+			console.log('current ', this.current);
 		// update progress bar
 		this._progress();
+	}
 
-		if( !this.isFilled ) {
+		if( this.current <= this.questions.length-1) {
+		
 			// change the current question number/status
 			this._updateQuestionNumber();
+			//hack to remove extra numbers from questionStatus
+			var elements = document.querySelectorAll('.number-next');
+			if(elements.length > 1){
+				this.questionStatus.removeChild(elements[0]);
+			}
 
 			// add class "show-next" to form element (start animations)
 			classie.addClass( this.el, 'show-next' );
@@ -219,8 +269,10 @@
 			// remove class "current" from current question and add it to the next one
 			// current question
 			var nextQuestion = this.questions[ this.current ];
-			classie.removeClass( currentQuestion, 'current' );
-			classie.addClass( nextQuestion, 'current' );
+				classie.removeClass( currentQuestion, 'current' );
+				classie.addClass( nextQuestion, 'current' );
+			
+		
 		}
 
 		// after animation ends, remove class "show-next" from form element and change current question placeholder
@@ -229,7 +281,8 @@
 				if( support.transitions ) {
 					this.removeEventListener( transEndEventName, onEndTransitionFn );
 				}
-				if( self.isFilled ) {
+				if(document.querySelector('.progress').style.width === '100%') {
+
 					self._submit();
 				}
 				else {
@@ -255,7 +308,7 @@
 	}
 
 	// changes the current question number
-	stepsForm.prototype._updateQuestionNumber = function() {
+	stepsForm.prototype._updateQuestionNumber = function(val) {
 		// first, create next question number placeholder
 		this.nextQuestionNum = document.createElement( 'span' );
 		this.nextQuestionNum.className = 'number-next';
@@ -263,7 +316,6 @@
 		// insert it in the DOM
 		this.questionStatus.appendChild( this.nextQuestionNum );
 	}
-
 	// submits the form
 	stepsForm.prototype._submit = function() {
 		this.options.onSubmit( this.el );
