@@ -8,6 +8,11 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
+
+
+
+// var classie = require('./classie');
+
 ( function( window ) {
 	
 	'use strict';
@@ -134,7 +139,7 @@
 			this.current = this.questions.length;
 
 		}
-
+		console.log('prev ', this.current);
 		// current question
 		var currentQuestion = this.questions[ this.current ];
 		
@@ -205,6 +210,7 @@
 	}
 
 	stepsForm.prototype._nextQuestion = function() {
+
 		if( !this._validade() ) {
 			return false;
 		}
@@ -228,7 +234,7 @@
 			
 		}
 
-		if(this.current === this.questions.length - 1){
+		if(this.current === this.questions.length - 2){
 			document.querySelector('.next').style.display = 'none';
 		}else{
 				document.querySelector('.next').style.display = 'block';
@@ -237,24 +243,34 @@
 		// current question
 		var currentQuestion = this.questions[ this.current ];
 	
-		if(this.current >= 3){
-			// increment current question iterator
+	// 	if(this.current >= 3){
+	// 		console.log('current is equal to 3 ',this.current);
+	// 		// increment current question iterator
+	// 		++this.current;
+	// 		// update progress bar to 100% and then reset to current
+	// 		this._progress();
+	// 		--this.current;
+
+	// 	}else{
+
+	// 	// increment current question iterator
+	// 	++this.current;
+	// 		// console.log('current ', this.current);
+	// 	// update progress bar
+	// 	this._progress();
+	// }
+
 			++this.current;
-			// update progress bar to 100% and then reset to current
-			this._progress();
-			--this.current;
-
-		}else{
-
-		// increment current question iterator
-		++this.current;
-			console.log('current ', this.current);
-		// update progress bar
-		this._progress();
-	}
+	// 		// console.log('current ', this.current);
+	// 	// update progress bar
+		if(this.current <= 3){
+				this._progress();
+		}
+	
 
 		if( this.current <= this.questions.length-1) {
-		
+					console.log('current ', this.current);
+					console.log('length ', this.questions.length-1);
 			// change the current question number/status
 			this._updateQuestionNumber();
 			//hack to remove extra numbers from questionStatus
@@ -278,17 +294,20 @@
 		// after animation ends, remove class "show-next" from form element and change current question placeholder
 		var self = this,
 			onEndTransitionFn = function( ev ) {
+
 				if( support.transitions ) {
 					this.removeEventListener( transEndEventName, onEndTransitionFn );
 				}
-				if(document.querySelector('.progress').style.width === '100%') {
-
-					self._submit();
+				if( self.current >= 3 ) {
+					self.current = 3;
+					nextQuestion.querySelector( 'input' ).focus();
+					// self._submit();
 				}
 				else {
+					console.log('no')
 					classie.removeClass( self.el, 'show-next' );
 					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
-					self.questionStatus.removeChild( self.nextQuestionNum );
+					// self.questionStatus.removeChild( self.nextQuestionNum );
 					// force the focus on the next input
 					nextQuestion.querySelector( 'input' ).focus();
 				}
@@ -300,11 +319,17 @@
 		else {
 			onEndTransitionFn();
 		}
+		if(document.querySelector('#q4').value.length > 0 && this.current > 3){
+			this.current = 3;
+			self._submit();
+		}
 	}
 
 	// updates the progress bar by setting its width
 	stepsForm.prototype._progress = function() {
-		this.progress.style.width = this.current * ( 100 / this.questionsCount ) + '%';
+	
+		this.progress.style.width = (this.current + 1) * ( 100 / this.questionsCount ) + '%';
+		
 	}
 
 	// changes the current question number
@@ -359,4 +384,8 @@
 	window.stepsForm = stepsForm;
 
 })( window );
+
+
+
+
 

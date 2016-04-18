@@ -3,6 +3,10 @@
 //        $(document).scrollTop(100);
 //     }
 // });
+
+
+
+
 		//after submitting form
 		var theForm = document.getElementById('theForm');
 
@@ -17,8 +21,10 @@
 		        	 $('#page1').css({ "position": "relative", "transform": "translateY(-700px)" });
 					$('#page2').css({ "transform": "translateY(-700px)", "margin-bottom":"-700px" });
 
-				 })	        
-		        $('#navbar').css("display", "flex");
+				 })
+				 $('.nav-logo').hide();	
+				$('#navbar > div, #navbar img:not(:first-child), #navbar span').show();      
+		        // $('#navbar ').css("display", "flex");
 		        // $('#main1').css({"margin-top": "120px"});
 
 		        // hide form
@@ -52,5 +58,8 @@
 		        $('#page2').css({ "transform": "translateY(0px) " });
 
 		    }
-		})
+		});
+
+
+
 

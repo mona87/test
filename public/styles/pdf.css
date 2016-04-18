@@ -80,11 +80,12 @@
   height: 550px; }
 
 .section-two--bgImage {
-  background: url("../images/background.svg");
+  background: url("../images/pdfImages/background-img.svg");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
-  position: relative; }
+  position: relative;
+  background-position: 0px -150px; }
 
 .section-two--filter:before {
   content: '';
@@ -95,9 +96,9 @@
   bottom: 0;
   left: 0;
   background-image: linear-gradient(to right, #CD1B5C, #803687);
-  opacity: .7; }
+  opacity: .95; }
 
-.section-two__wrapper {
+.section-two-pdf__wrapper {
   display: flex;
   width: 90%;
   min-height: 250px;
@@ -108,7 +109,6 @@
 .section-three {
   display: flex;
   align-items: center;
-  justify-content: center;
   background-color: #2A2C30;
   width: 100%;
   height: 550px; }
@@ -206,10 +206,20 @@
   margin-right: 40px; }
 
 .container {
-  min-width: 1500px; }
+  min-width: 1500px;
+  min-height: 1500px; }
 
 .section-two-pdf__text {
   position: relative; }
+
+#section-one-gains .section-two__text {
+  color: #D74154; }
+
+#section-one-inefficientCosts .section-two-pdf__text {
+  color: #D74154; }
+
+#section-one-roi .section-two__text {
+  color: #D74154; }
 
 .nav__wrapper {
   display: flex;
@@ -240,19 +250,27 @@
   color: #000;
   font-weight: bold; }
 
-.section-two__text {
-  width: 290px;
+.section-two-pdf__text {
   display: block;
-  height: 38px;
   font-size: 30px;
   font-weight: bold; }
 
-#roi {
+.section-two-pdf__values {
+  font-size: 50px;
+  font-weight: bold;
+  color: #000;
+  font-style: normal;
+  display: inline-flex; }
+
+#section-one-roi .section-two-pdf__text {
+  color: #03929D; }
+
+#section-one-roi {
   padding-left: 20px;
   padding-right: 20px;
   box-sizing: border-box; }
 
-#roi .section-two__text:last-child {
+#section-one-roi .section-two__text:last-child {
   font-size: 40px;
   padding-top: 10px;
   font-style: italic;
@@ -278,22 +296,21 @@
   margin-top: 20px;
   margin-right: 15px; }
 
-#gains {
+#section-one-gains {
   color: #03929D; }
 
-.values {
+.section-one-pdf__values {
   display: flex;
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-top: 60px; }
+  margin-top: 140px; }
 
-#inefficientCosts {
-  color: #D74154;
+#section-one-inefficientCosts {
   font-weight: normal; }
 
-.values > div {
+.section-one-pdf__values > div {
   min-width: 430px;
   height: 230px;
   border: 3px solid #E6E7E8;
@@ -308,8 +325,8 @@
   flex-direction: column; }
 
 .section-three__value {
-  position: absolute;
+  position: relative;
   color: white;
   font-size: 80px;
-  top: 150px;
-  left: 310px; }
+  bottom: 50px;
+  left: 410px; }

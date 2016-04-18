@@ -33,8 +33,6 @@ body {
   width: 100%;
   height: 100%;
   font-family: 'Klavika';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   /*overflow: hidden;*/ }
 
 h1 {
@@ -61,26 +59,10 @@ h1 {
   flex-direction: row;
   position: absolute;
   font-size: 20px;
-  top: 0; }
-
-.nav-logo {
-  width: 100px;
-  position: absolute;
-  top: 20px;
-  left: 50px; }
-
-.nav-logo-white {
-  width: 100px;
-  position: absolute;
-  top: 20px;
-  left: 50px; }
-
-#navbar > div, #navbar img:not(:first-child), #navbar span {
+  top: 0;
   display: none; }
 
 .arrow-down {
-  margin-right: 50px;
-  margin-left: 20px;
   cursor: pointer;
   width: 0;
   height: 0;
@@ -88,8 +70,10 @@ h1 {
   border-width: 10px 10px 0 10px;
   border-color: #ffffff transparent transparent transparent; }
 
+nav div {
+  margin-right: 50px; }
+
 nav span {
-  font-weight: bold;
   margin-right: 10px; }
 
 .questions label {
@@ -100,7 +84,7 @@ nav span {
   background-size: cover;
   background-position: 0;
   background-repeat: no-repeat;
-  -webkit-filter: brightness(0.2);
+  -webkit-filter: brightness(0.5);
   position: absolute;
   z-index: -100;
   height: 800px;
@@ -161,7 +145,6 @@ nav span {
   width: 800px; }
 
 #page1 h4 {
-  margin-top: 0;
   max-width: 700px;
   text-align: center;
   font-weight: lighter; }
@@ -175,7 +158,7 @@ nav span {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 50px;
+  padding-top: 100px;
   padding-left: 50px;
   padding-right: 50px;
   box-sizing: border-box; }
@@ -189,14 +172,24 @@ nav span {
   min-height: 400px;
   color: #fff;
   padding-top: 10px;
-  padding-bottom: 50px;
   box-sizing: border-box;
   /*display: none;*/ }
+
+#main4 div {
+  min-width: 250px;
+  width: 250px; }
 
 .value-lg {
   display: block;
   font-size: 40px; }
 
+/*.description{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+
+}*/
 #blue-bar {
   height: 3px;
   width: 100px;
@@ -224,12 +217,11 @@ nav span {
 
 #inefficientCosts {
   color: #D74154;
-  font-weight: bold;
+  font-weight: normal;
   box-sizing: border-box; }
 
 #gains {
   color: #03929D;
-  font-weight: bold;
   box-sizing: border-box; }
 
 .values > div {
@@ -270,22 +262,13 @@ nav span {
 
 #main3 h3 > span {
   display: inline-block;
-  font-size: 24px;
+  font-size: 20px;
   max-width: 800px; }
-
-.flyer {
-  position: relative;
-  z-index: -5;
-  bottom: 790px;
-  margin-bottom: -850px;
-  right: 300px;
-  transform: rotate(7deg); }
 
 .office-img, .office-img2 {
   background: url("../images/office.png");
   background-repeat: no-repeat;
   background-size: cover; }
-
 
 .office-img:before {
   content: '';
@@ -296,18 +279,18 @@ nav span {
   bottom: 0;
   left: 0;
   background-image: linear-gradient(to right, #068FCB, #00A580);
-  opacity: .95; }
+  opacity: .8; }
 
 .office-img2:before {
   content: '';
-  min-height: 480px;
+  min-height: 450px;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-image: linear-gradient(to right, #CD1B5C, #803687);
-  opacity: .95; }
+  opacity: .9; }
 
 .arrow-yellow {
   background: url("../images/arrow-yellow.svg");
@@ -339,9 +322,8 @@ nav span {
   display: flex;
   align-items: center;
   position: relative;
-  top: 125px;
-  margin-right: 50px;
-  margin-left: 50px; }
+  top: 115px;
+  margin-right: 20px; }
 
 #main4 .equal {
   background: url("../images/equal-symbol.svg");
@@ -350,23 +332,20 @@ nav span {
   height: 75px;
   background-repeat: no-repeat;
   position: relative;
-  top: 125px;
-  margin-right: 50px;
-  margin-left: 50px; }
+  top: 115px;
+  margin-right: 20px; }
 
 .mini-title {
   display: block;
   font-size: 20px;
-  min-width: 230px; }
-
-.values-equation {
-  font-size: 60px;
-  font-weight: bold;
-  margin-top: 20px;
   margin-bottom: 20px; }
 
+.values-equation {
+  font-size: 40px;
+  font-weight: bold; }
+
 #main5 {
-  min-height: 480px;
+  min-height: 450px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -380,8 +359,7 @@ nav span {
 
 #main5 h1, #main5 h2 {
   position: relative;
-  z-index: 3;
-  font-size: 24px; }
+  z-index: 3; }
 
 #main5 h1 {
   font-weight: bold;
@@ -405,7 +383,7 @@ nav span {
   margin-top: 30px; }
 
 #main5 .arrow-yellow {
-  bottom: 75px;
+  bottom: 65px;
   position: relative;
   z-index: 3; }
 
@@ -466,6 +444,7 @@ nav span {
   flex-direction: column;
   width: 100%;
   margin-top: 60px;
+  margin-right: 100px;
   margin-bottom: 20px;
   max-width: 980px;
   font-style: oblique; }
@@ -489,7 +468,7 @@ nav span {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-  margin-right: 50px; }
+  margin-right: 100px; }
 
 #report-section input {
   border: 2px #03929D solid;
@@ -540,8 +519,7 @@ nav span {
 #roi {
   box-sizing: border-box;
   padding-left: 20px;
-  padding-right: 20px;
-  font-weight: bold; }
+  padding-right: 20px; }
 
 #roi .section-two__text:last-child {
   font-size: 25px;
@@ -567,22 +545,6 @@ nav span {
   border-bottom: 15px solid #03929D;
   margin-top: 15px;
   margin-right: 15px; }
-
-.section-four_wrapper {
-  max-width: 980px;
-  width: 100%;
-  min-height: 380px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-around; }
-
-.nav__blue-slash {
-  margin-right: 20px;
-  margin-left: 20px; }
-
-.pdf {
-  z-index: -1000;
-  display: none; }
 
 @media (max-width: 800px) {
   .values {

@@ -1,5 +1,16 @@
 
 //get params from url
+
+// $.ajax({
+//     url: '/api/mail-roi-report'
+// }).done(function(data) {
+//     console.log(data);
+// });
+
+
+// $
+
+
 var url ='http://work.style/roi_pdf?num_agents=20000&training_days=14&percent_churn=40.0&cost_per_hour=25.00';
 
 var param_array = url.split('?')[1].split('&');
@@ -50,24 +61,20 @@ if(params !== null){
          var totalCost = setUpAgents + runningCost +  setUpChurnAgents ;
          var averageCost = totalCost/500;
 
-         var ROI = totalChurnCost/totalCost;
+         var ROI = (totalChurnCost/totalCost) * .1;
+
 
         var workstyleCosts = churnSavings - totalCost;
-        
-        console.log('agentNum' + agentNum);
-        console.log('trainingDaysNum ' + trainingDaysNum);
-        console.log('churnNum ' + churnNum);
-        console.log('costPerHour ' + costPerHour);
 
 
 
         //update dom with values
 
         //section2 values
-        $('.section-two__value-one').html(numeral(agentCost).format('(0.0 a)'));
+        $('.section-two__value-one').html(numeral(totalChurnCost).format('(0.0 a)'));
         $('.section-two__value-two').html(numeral(churnSavings).format('(0.0 a)'));
-        $('.section-two__value-three').html(numeral(ROI).format('0.00 %')+ ' ROI');
-
+        // $('.section-two__value-three').html(numeral(ROI).format('0.00 %')+ ' ROI');
+        $('.section-two__value-three').html(numeral(ROI).format('0%')+ ' ROI');
         $('.section-three__value').html(numeral(newAgentCost).format('$0,0.00'));
 
     }
@@ -88,18 +95,34 @@ $(window).load(function (){
         return info
     }
 
+    var pdf = new jsPDF('p', 'pt', 'a4');
+    console.log('true');
+    var options = {
+             background: '#fff',
+             logging: true,
+           
+    };
 
-	var pdf = new jsPDF('p', 'pt', 'a4');
-	console.log('true');
-	var options = {
-	         background: '#fff',
-	         logging: true,
-	       
-	    };
+    html2canvas($('.container'), {
+      width: 2052,
+      height: 2836,
+      background: '#fff'
+    }).then(function(canvas){
+        var imgData = canvas.toDataURL('image/jpeg', 1.0);
+        // pdf.addImage(imgData, 'JPEG', 0, 0, 513, 709);
+          pdf.addImage(imgData, 'JPEG', 0, 0, 595.08, 822.44);
+        pdf.output('dataurlnewwindow', {}); 
+         // window.open(imgData)
+    });
 
-     pdf.addHTML($('.container'), options, function(){
+
+
+     // pdf.addHTML($('.container'), options, function(){
      	 
-     	pdf.output('dataurlnewwindow', {}) 
-     });
+     // 	pdf.output('dataurlnewwindow', {}) 
+     // });
+
+
+
 
 });
