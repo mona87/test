@@ -114,10 +114,13 @@
 			var keyCode = ev.keyCode || ev.which;
 			// enter
 			if( keyCode === 13 ) {
+				console.log('enter');
 				ev.preventDefault();
+	
 				self._nextQuestion();
+
 			}
-		} );
+		});
 
 		// disable tab
 		this.el.addEventListener( 'keydown', function( ev ) {
@@ -152,10 +155,10 @@
 		}
 
 		//show and hide next arrow
-		if(this.current === this.questions.length ){
-			document.querySelector('.next').style.display = 'none';
-		}else{
+		if(this.current <= this.questions.length - 1){
 			document.querySelector('.next').style.display = 'block';
+		}else{
+			document.querySelector('.next').style.display = 'none';
 		}
 
 		// decrement current question iterator
@@ -234,10 +237,10 @@
 			
 		}
 
-		if(this.current === this.questions.length - 2){
-			document.querySelector('.next').style.display = 'none';
+		if(this.current <= this.questions.length - 1){
+			document.querySelector('.next').style.display = 'block';
 		}else{
-				document.querySelector('.next').style.display = 'block';
+				document.querySelector('.next').style.display = 'none';
 		}
 
 		// current question
@@ -263,14 +266,14 @@
 			++this.current;
 	// 		// console.log('current ', this.current);
 	// 	// update progress bar
-		if(this.current <= 3){
+		if(this.current <= this.questions.length - 1 ){
 				this._progress();
 		}
 	
 
 		if( this.current <= this.questions.length-1) {
-					console.log('current ', this.current);
-					console.log('length ', this.questions.length-1);
+					// console.log('current ', this.current);
+					// console.log('length ', this.questions.length-1);
 			// change the current question number/status
 			this._updateQuestionNumber();
 			//hack to remove extra numbers from questionStatus
@@ -298,13 +301,12 @@
 				if( support.transitions ) {
 					this.removeEventListener( transEndEventName, onEndTransitionFn );
 				}
-				if( self.current >= 3 ) {
-					self.current = 3;
+				if( self.current >= self.questions.length - 1 ) {
+					self.current = self.questions.length - 1 ;
 					nextQuestion.querySelector( 'input' ).focus();
 					// self._submit();
 				}
 				else {
-					console.log('no')
 					classie.removeClass( self.el, 'show-next' );
 					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
 					// self.questionStatus.removeChild( self.nextQuestionNum );
@@ -319,10 +321,19 @@
 		else {
 			onEndTransitionFn();
 		}
-		if(document.querySelector('#q4').value.length > 0 && this.current > 3){
-			this.current = 3;
+		//toggle arrow color
+		if($('.current input ').val().length > 0){
+				$('.next.show').addClass('toggle');
+		}else {
+				$('.next.show').removeClass('toggle');
+		}
+		
+		if(document.querySelector('#q4').value.length > 0 && this.current > this.questions.length - 1 ){
+			this.current = this.questions.length - 1 ;
 			self._submit();
 		}
+
+
 	}
 
 	// updates the progress bar by setting its width

@@ -30,16 +30,30 @@ $(function(){
 
 	//listen for keydown event
 	$('input').on('keydown', function(e){	
-
-
-		updateDollar($('#q4').val(), 'q4');
-		// updatePercent($('#q3').val(), 'q3');
+		//autopopluate dollar sign
+		if($('.current input').attr('name') === 'q4'){
+			if($('#q4').val().charAt(0) !== '$'){
+				$('#q4').val('$' + $('.current input').val());
+			}
+		}
+		//calculate values
 		if(e.which == 13){
-	
 			getValues();
 		}
 
+	});
+	//autopopulate %
+	$('#q3').on('keyup', function(e){
 
+		var current = $('#q3').val() ;
+
+		if(e.keyCode >= 48 && e.keyCode <= 57){			
+				var newString = current.replace(/%/g, '');
+				$('#q3').val(newString+ '%');
+				//position cursor right before %  
+				document.querySelector('#q3').setSelectionRange( $('#q3').val().length-1, $('#q3').val().length-1 );
+				
+		 }
 	});
 	//toggles arrow color
 	$('input').on('input', function(){
@@ -50,10 +64,12 @@ $(function(){
 	//listen for button click
 	$('.next').click(function(){
 		getValues();
+		checkInput();	
 	});
 
 	$('.prev').click(function(){
 		getValues();
+		checkInput();
 	});
 	//autopopulate fields
 	function updateDollar(input, id){
@@ -61,31 +77,12 @@ $(function(){
 		var val = input;
 		// console.log(val);
 		//autopopulate $
-		if($('.questions.current input').attr('name') === id){
-			if(val.charAt(0) !== '$'){
-				$('input').val('$' + val);
-			}
-		}
-	}
-	function updatePercent(input, id){
 
-		var val = input;
-		// console.log(val);
-		//autopopulate $
-		if($('.current input').attr('name') === id){
-			console.log(val.charAt(val.length - 1));
-			if(val.charAt(0) !== '%'){
-				
-				
-				//console.log(val.charAt(val.length - 1));
-				$('input').val(val + '%');
-			}
-		}
 	}
-
 	function checkInput(){
+			console.log('checkinput ', $('input').val().length )
 		if($('.current input').val().length > 0){
-			console.log($('input').val().length )
+		
 			$('.next.show').addClass('toggle');
 		}else{
 			$('.next.show').removeClass('toggle');
@@ -114,11 +111,11 @@ $(function(){
 		}
 		if(churnNum !== null){
 			//add val to navbar
-			$('#churn').html($('#q3').val()+'%');
+			$('#churn').html($('#q3').val());
 			//get churn days
 			if($('#q3').val() !== ''){
 
-				churnNum = numeral().unformat(('.'+$('#q3').val()));
+				churnNum = numeral().unformat($('#q3').val());
 
 				console.log(churnNum);
 			}	
@@ -165,7 +162,7 @@ $(function(){
 
 
         var workstyleCosts = churnSavings - totalCost;
-       	console.log(ROI);
+       	// console.log(ROI);
         
         // console.log('agentNum' + agentNum);
         // console.log('trainingDaysNum ' + trainingDaysNum);
@@ -176,8 +173,26 @@ $(function(){
 		//update dom with values
 
 		//section2 values
-		$('.section-two__value-one').html(numeral(totalChurnCost).format('(0.0 a)'));
-		$('.section-two__value-two').html(numeral(churnSavings).format('(0.0 a)'));
+		var string = numeral(totalChurnCost).format('(0.0 a)');
+		//get last char and uppercase
+		var letter = string.charAt(string.length - 1).toUpperCase();
+
+		var string2 = numeral(churnSavings).format('(0.0 a)');
+		var letter2 = string2.charAt(string2.length - 1).toUpperCase();
+
+		function newString(string){
+			return string.substring(0, string.length - 1);
+		}
+		function upperCase(string){
+			console.log(string.charAt(string.length - 1).toUpperCase());
+			return string.charAt(string.length - 1).toUpperCase();
+
+		}
+
+		$('.section-two__value-one').html(newString(string));
+		$('.section-two__letter1').html(upperCase(letter));
+		$('.section-two__value-two').html(newString(string2));
+		$('.section-two__letter2').html(upperCase(letter2));
 		$('.section-two__value-three').html(numeral(ROI).format('0%')+ ' ROI');
 
 		$('#value-one').html(numeral(trainingDays).format('$0,0'));
@@ -202,31 +217,49 @@ $(function(){
 
 
 		$.ajax({
-			url: 'http://work.style/api/mail-roi-report',
+			traditional: true,
+			url: 'https://workstyledevelop.parseapp.com/api/mail-roi-report',
 			type: 'post',
 			headers: { "Content-Type": "application/json"},
-			data: jQuery.param({
-				"first_name": firstName,
-				"last_name": lastName,
-				"email": email,
-				"num_agents": agentNum,
-				"training_days": trainingDaysNum,
-				"percent_churn": churnNum,
-				"cost_per_hour": costPerHour,
-				"total_inefficiency_cost": totalChurnCost,
-				"total_efficiency_gain": churnSavings,
-				"roi_percent": ROI,
-				"pre_hire_training_cost": trainingDays,
-				"new_hire_variance_cost": proficiencyCost,
-				"total_losses_per_hire": newAgentCost
-			})
+			data: {
+					"first_name": "Hunter",
+					"last_name": "Sinclair",
+					"email": "rbellamy@thinktiv.com",
+					"num_agents": 20000,
+					"training_days": 14,
+					"percent_churn": 40.0,
+					"cost_per_hour": 25.00,
+					"total_inefficiency_cost": 15000000,
+					"total_efficiency_gain": 2000000,
+					"roi_percent": 201.00,
+					"pre_hire_training_cost": 2565.00,
+					"new_hire_variance_cost": 10000.00,
+					"total_losses_per_hire": 12565.00
+				}
+		
 		}).done(function(data){
 				console.log(data);
+				console.log(data.status +' '+ data.statusText);
 		}).fail(function(data){
 				console.log(data);
+				console.log(data.status + ' ' + data.statusText);
 		});
 
 	});
+
+				// 	"first_name": firstName,
+				// "last_name": lastName,
+				// "email": email,
+				// "num_agents": agentNum,
+				// "training_days": trainingDaysNum,
+				// "percent_churn": churnNum,
+				// "cost_per_hour": costPerHour,
+				// "total_inefficiency_cost": totalChurnCost,
+				// "total_efficiency_gain": churnSavings,
+				// "roi_percent": ROI,
+				// "pre_hire_training_cost": trainingDays,
+				// "new_hire_variance_cost": proficiencyCost,
+				// "total_losses_per_hire": newAgentCost
 
 
 

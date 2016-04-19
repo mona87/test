@@ -18,7 +18,7 @@
 		        $('body').css({ "overflow": "visible" });
 		        $('.bgImg').css({ "min-height": "100%" });
 		        $('#page2').show( function(){
-		        	 $('#page1').css({ "position": "relative", "transform": "translateY(-700px)" });
+		        	 $('#page1').css({ "position": "relative", "transform": "translateY(-725px)" });
 					$('#page2').css({ "transform": "translateY(-700px)", "margin-bottom":"-700px" });
 
 				 })
@@ -49,7 +49,7 @@
 		    //hides form
 		    if ($('#page1').hasClass('toggled')) {
 		        $('.bgImg').css({ "min-height": "100%" });
-		        $('#page1').css({ "transform": "translateY(-700px)" }).removeClass('toggled');
+		        $('#page1').css({ "transform": "translateY(-725px)" }).removeClass('toggled');
 		        $('#page2').css({ "transform": "translateY(-700px)","margin-bottom":"-700px" });
 
 		    } else {

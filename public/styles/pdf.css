@@ -194,7 +194,7 @@
   background-color: #000;
   z-index: -2; }
 
-.nav__blue-slash {
+.nav-pdf__blue-slash {
   background: url("../images/blue-slash.svg");
   background-repeat: no-repeat;
   height: 25px;

@@ -117,10 +117,10 @@ $(window).load(function (){
 
 
 
-     // pdf.addHTML($('.container'), options, function(){
+     pdf.addHTML($('.container'), options, function(){
      	 
-     // 	pdf.output('dataurlnewwindow', {}) 
-     // });
+     	pdf.output('dataurlnewwindow', {}) 
+     });
 
 
 

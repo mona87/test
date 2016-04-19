@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'Klavika';
-  font-weight: bold;
-  src: url("../fonts/klavika/Klavika-Medium.otf"); }
+  font-weight: normal;
+  src: url("../fonts/klavika/Klavika-Regular.otf"); }
 
 @font-face {
   font-family: 'Klavika';
-  font-weight: normal;
-  src: url("../fonts/klavika/Klavika-Regular.otf"); }
+  font-weight: bold;
+  src: url("../fonts/klavika/Klavika-Medium.otf"); }
 
 @font-face {
   font-family: 'Klavika';
@@ -90,7 +90,7 @@ h1 {
 
 nav span {
   font-weight: bold;
-  margin-right: 10px; }
+  margin-right: 5px; }
 
 .questions label {
   font-weight: normal; }
@@ -98,13 +98,18 @@ nav span {
 .bgImg {
   background: url("../images/background.png");
   background-size: cover;
-  background-position: 0;
   background-repeat: no-repeat;
   -webkit-filter: brightness(0.2);
+  filter: brightness(0.2);
   position: absolute;
   z-index: -100;
   height: 800px;
-  width: 100%; }
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%; }
 
 #page1 {
   box-sizing: border-box;
@@ -119,7 +124,11 @@ nav span {
   color: white;
   transition: .4s all ease;
   /*display: none;*/
-  background-color: black; }
+  background-color: black;
+  top: 0;
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%; }
 
 #page1 h1 {
   font-weight: medium; }
@@ -143,6 +152,7 @@ nav span {
   margin-bottom: 0; }
 
 #theForm label {
+  font-weight: bold;
   color: #ffffff; }
 
 #main1 {
@@ -167,6 +177,7 @@ nav span {
   font-weight: lighter; }
 
 #page2 {
+  display: none;
   transition: .4s all ease;
   justify-content: center;
   position: relative; }
@@ -175,7 +186,8 @@ nav span {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 50px;
+  padding-top: 75px;
+  padding-bottom: 50px;
   padding-left: 50px;
   padding-right: 50px;
   box-sizing: border-box; }
@@ -233,7 +245,7 @@ nav span {
   box-sizing: border-box; }
 
 .values > div {
-  min-width: 250px;
+  min-width: 270px;
   min-height: 150px;
   border: 2px solid #E6E7E8;
   text-align: center;
@@ -286,6 +298,9 @@ nav span {
   background-repeat: no-repeat;
   background-size: cover; }
 
+.office-img2 {
+  background-size: 3000px auto;
+  background-position: -400px -400px; }
 
 .office-img:before {
   content: '';
@@ -318,7 +333,7 @@ nav span {
 #arrow-1 {
   position: relative;
   z-index: 1;
-  top: 30px; }
+  top: 80px; }
 
 #arrow-2 {
   position: relative;
@@ -360,7 +375,7 @@ nav span {
   min-width: 230px; }
 
 .values-equation {
-  font-size: 60px;
+  font-size: 55px;
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 20px; }
@@ -377,6 +392,17 @@ nav span {
   padding-right: 50px;
   padding-left: 50px;
   box-sizing: border-box; }
+
+.section-two_money_wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start; }
+
+.section-two__letter1, .section-two__letter2 {
+  font-weight: bold;
+  font-size: 40px;
+  padding-top: 12px;
+  margin-left: 10px; }
 
 #main5 h1, #main5 h2 {
   position: relative;
@@ -521,11 +547,13 @@ nav span {
   margin-left: 60px; }
 
 .section-two__values {
-  font-size: 50px;
+  font-size: 55px;
   font-weight: bold;
   color: #000;
   font-style: normal;
-  display: inline-flex; }
+  display: inline-flex;
+  width: 100%;
+  justify-content: center; }
 
 .section-two__dollar {
   font-size: 30px;
@@ -533,9 +561,9 @@ nav span {
   font-weight: bold; }
 
 .section-two__text {
-  width: 150px;
   display: block;
-  height: 38px; }
+  height: 38px;
+  font-size: 18px; }
 
 #roi {
   box-sizing: border-box;
@@ -545,13 +573,13 @@ nav span {
 
 #roi .section-two__text:last-child {
   font-size: 25px;
-  padding-top: 10px;
   font-style: italic;
   color: #03929D;
-  width: 200px; }
+  width: 100%; }
 
 .section-two__arrow-up {
   margin-top: 15px;
+  margin-left: 15px;
   margin-right: 15px;
   width: 0;
   height: 0;
@@ -566,6 +594,7 @@ nav span {
   border-right: 15px solid transparent;
   border-bottom: 15px solid #03929D;
   margin-top: 15px;
+  margin-left: 15px;
   margin-right: 15px; }
 
 .section-four_wrapper {

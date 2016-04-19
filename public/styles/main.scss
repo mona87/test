@@ -1,14 +1,20 @@
-@font-face {
-  font-family: 'Klavika';
-  font-weight: bold;
-  src: url('../fonts/klavika/Klavika-Medium.otf'); 
+// @font-face {
+//   font-family: 'Klavika';
+//   font-weight: bold;
+//   src: url('../fonts/klavika/Klavika-Medium.otf'); 
 
-}
+// }
 
 @font-face {
   font-family: 'Klavika';
   font-weight: normal;
   src: url('../fonts/klavika/Klavika-Regular.otf'); 
+}
+
+@font-face {
+  font-family: 'Klavika';
+  font-weight: bold;
+  src: url('../fonts/klavika/Klavika-Medium.otf'); 
 }
 
 @font-face {
@@ -110,7 +116,7 @@ nav div{
 
 nav span{
 	font-weight: bold;
-	margin-right: 10px;
+	margin-right: 5px;
 }
 
 .questions label{
@@ -120,13 +126,19 @@ nav span{
 .bgImg{
 	background: url('../images/background.png');
 	background-size: cover;
-	background-position: 0;
 	background-repeat: no-repeat;
 	-webkit-filter: brightness(.2);
+	filter: brightness(.2);
 	position: absolute;
 	z-index: -100;
 	height: 800px;
 	width: 100%;
+	left: 0; 
+    top: 0;
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+
 }
 
 #page1{
@@ -143,6 +155,11 @@ nav span{
 	transition: .4s all ease;
 	/*display: none;*/
 	background-color: black;
+    top: 0;
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+
 }
 #page1 h1{
 	font-weight: medium;
@@ -169,6 +186,7 @@ nav span{
 }
 
 #theForm label{
+	font-weight: bold;
 	color: #ffffff;
 
 }
@@ -200,7 +218,7 @@ nav span{
 }
 
 #page2{
-	// display: none;
+	display: none;
 	transition: .4s all ease;
 	justify-content: center;
 	position: relative;
@@ -210,7 +228,8 @@ nav span{
 	align-items: center;
 	flex-direction: column;
 	// min-height: 800px;
-	padding-top: 50px;	
+	padding-top: 75px;	
+	padding-bottom: 50px;
     padding-left: 50px;
     padding-right: 50px;
     box-sizing: border-box;
@@ -285,7 +304,7 @@ nav span{
 }
 
 .values > div{
-	min-width: 250px;
+	min-width: 270px;
 	min-height: 150px;
 	border: 2px solid #E6E7E8;
 	text-align: center;
@@ -349,7 +368,9 @@ nav span{
 
 }
 .office-img2{
-	// background-position: 0 -320px;
+    background-size: 3000px auto;
+    background-position: -400px -400px;
+
 }
 
 .office-img:before {
@@ -386,7 +407,7 @@ nav span{
 #arrow-1{
  	position: relative;
  	z-index: 1;
- 	top: 30px;
+ 	top: 80px;
  	// width: 75px;
 	// height: 200px;
 }
@@ -440,7 +461,7 @@ nav span{
 }
 
 .values-equation{
-	font-size: 60px;
+	font-size: 55px;
 	font-weight: bold;	
     margin-top: 20px;
     margin-bottom: 20px;
@@ -461,6 +482,20 @@ nav span{
     box-sizing: border-box;
 
 
+}
+
+.section-two_money_wrapper{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+
+}
+
+.section-two__letter1, .section-two__letter2{
+	font-weight: bold;
+	font-size: 40px;
+	padding-top: 12px;
+	margin-left: 10px;
 }
 
 #main5 h1, #main5 h2{
@@ -656,11 +691,13 @@ nav span{
 }
 
 .section-two__values{
-	font-size: 50px;
+	font-size: 55px;
 	font-weight: bold;
 	color: #000;
 	font-style: normal;
 	display: inline-flex;
+	width: 100%;
+	justify-content: center;
 
 }
 
@@ -672,9 +709,10 @@ nav span{
 }
 
 .section-two__text{
-	width: 150px;
+	
 	display: block;
 	height: 38px;
+	font-size: 18px;
 }
 
 #roi{
@@ -687,15 +725,16 @@ nav span{
 
 #roi .section-two__text:last-child{
     font-size: 25px;
-    padding-top: 10px;
     font-style: italic;
     color: #03929D;
-    width: 200px;
+    width: 100%;
+ 
 
 }
 
 .section-two__arrow-up{
 	margin-top: 15px;
+	margin-left: 15px;
 	margin-right: 15px;
 	width: 0;
 	height: 0;
@@ -711,6 +750,7 @@ nav span{
 	border-right: 15px solid transparent;
 	border-bottom: 15px solid #03929D;
 	margin-top: 15px;
+	margin-left: 15px;
 	margin-right: 15px;
 }
 
