@@ -1,1 +1,1 @@
-node-sass --include-path scss public/styles/pdf.scss public/styles/pdf.css
+node-sass --include-path scss public/styles/main.scss public/styles/main.css

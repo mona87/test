@@ -39,6 +39,7 @@
   src: url('../fonts/klavika/Klavika-MediumItalic.otf'); 
 }
 
+
 body{
 	width: 100%;
 	height: 100%;
@@ -54,6 +55,10 @@ h1{
 	font-weight: medium;
 	margin-top: 0;
 	// line-height: 50px;
+}
+
+.wrapper{
+	position: relative;
 }
 
 .sub-title{
@@ -211,17 +216,23 @@ nav span{
 	width: 800px;
 }
 #page1 h4{
-	margin-top: 0;
 	max-width: 550px;
 	text-align: center;
 	font-weight: lighter;
+    font-size: 17px;
+    line-height: 27px;
+    margin-top: 30px;
+    margin-bottom: 0;
+
 }
 
 #page2{
 	display: none;
 	transition: .4s all ease;
 	justify-content: center;
-	position: relative;
+	position: absolute;
+	width: 100%;
+	background-color: white;
 }
 #main2{
 	display: flex;
@@ -381,7 +392,7 @@ nav span{
 	right: 0;
 	bottom: 0;
 	left: 0;
-  	background-image:linear-gradient(to right, #068FCB, #00A580);
+  	background-image:linear-gradient(to right, #CD1B5C, #803687);
   	opacity: .95;
 }
 
@@ -393,7 +404,7 @@ nav span{
 	right: 0;
 	bottom: 0;
 	left: 0;
-  	background-image:linear-gradient(to right, #CD1B5C, #803687);
+	background-image:linear-gradient(to right, #068FCB, #00A580); 
   	opacity: .95;
 }
 

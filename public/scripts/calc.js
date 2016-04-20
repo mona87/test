@@ -147,9 +147,13 @@ $(function(){
          //churn cost
          trainingDays = trainingDaysNum * dailyAgentCost;
          proficiencyCost = .25 * annualAgentCost;
+         var noChurn = .15 * annualAgentCost;
          newAgentCost = trainingDays + proficiencyCost;
          totalChurnCost = newAgentCost *(agentNum * churnNum);
+       	 var agentSubperformance = noChurn * (1- churnNum)* agentNum;
          churnSavings = totalChurnCost * .1;
+         var agentProductivityImprove = .05 * agentSubperformance;
+         var existUnderperform = churnSavings + agentProductivityImprove;
 
          //workstyle cost
          setUpAgents = 125 * agentNum;
@@ -158,13 +162,20 @@ $(function(){
          totalCost = setUpAgents + runningCost +  setUpChurnAgents ;
          averageCost = totalCost/500;
 
-         ROI = (churnSavings-totalCost)/totalCost;
+         ROI = (existUnderperform-totalCost)/totalCost;
+
+         if(ROI <= 0){
+         	ROI = 1;
+         }
 
 
         var workstyleCosts = churnSavings - totalCost;
        	// console.log(ROI);
         
-
+       		console.log('noChurn ', noChurn);
+       		console.log('agentSubperformance ', agentSubperformance);
+       		console.log('agentProductivityImprove ', agentProductivityImprove);
+       		console.log('existUnderperform ' ,existUnderperform);
         console.log('costs', totalChurnCost);
         console.log('gains', churnSavings);
         console.log('roi' + ROI);
@@ -224,28 +235,28 @@ $(function(){
 
 		var firstName = $('.first-name').val();
 		var lastName = $('.last-name').val();
-		var email = $('.email').val();
+		var email = $('.company-name').val();
 		var totalInefficiencyCost = $('.section-two__value-one').val();
 		var totalEfficiencyGain = $('.section-two__value-two').val();
 	
 
 
 		$.ajax({
-			url: 'https://workstyledevelop.parseapp.com/api/mail-roi-report',
+			url: 'https://workstyledevelop.parseapp.com/api/mail-roi-report/',
 			type: 'POST',
 			dataType:"json",
 			contentType: 'application/json',
 			data: JSON.stringify({ 
 					"data" :{ 
-								"first_name": "Ramona",
-								"last_name": "Bellamy",
-								"email": "rbellamy@thinktiv.com",
-								"num_agents": 20000,
-								"training_days": 14,
-								"percent_churn": 40.0,
-								"cost_per_hour": 25.00,
+								"first_name": firstName,
+								"last_name": lastName,
+								"email": email,
+								"num_agents": agentNum,
+								"training_days": trainingDaysNum,
+								"percent_churn": churnNum,
+								"cost_per_hour": costPerHour,
 								"total_inefficiency_cost": 2000000,
-								"roi_percent": 201.00,
+								"roi_percent": ROI,
 								"pre_hire_training_cost": 2565.00,
 								"new_hire_variance_cost": 10000.00,
 								"total_losses_per_hire": 12565.00			

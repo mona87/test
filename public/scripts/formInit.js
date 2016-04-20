@@ -27,7 +27,7 @@
 				$('.nav-logo').hide();	
 				$('#navbar > div, #navbar img:not(:first-child), #navbar span').show();   
 		        // $('#navbar ').css("display", "flex");
-		        // $('#main1').css({"margin-top": "120px"});
+		        $('.bgImg').css({"position": "absolute"});
 
 		        // hide form
 		        // classie.addClass(theForm.querySelector('.simform-inner'), 'hide');

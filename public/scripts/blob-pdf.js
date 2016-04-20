@@ -29,7 +29,7 @@ console.log(params.num_agents);
 //add values
 $('.agents').html(params.num_agents);
 $('.training').html(params.training_days);
-$('.churn').html(params.percent_churn + '%');
+$('.churn').html((params.percent_churn * 100)+ '%');
 $('.cost').html('$' + params.cost_per_hour);
 
 if(params !== null){
@@ -142,23 +142,23 @@ $(window).load(function (){
           pdf.addImage(imgData, 'JPEG', 0, 0, 595.28, 841.89);
 
 
-            // var data = pdf.output();
+            var data = pdf.output();
 
-             // var buffer = new ArrayBuffer(data.length);
-             //    var array = new Uint8Array(buffer);
-             //    for (var i = 0; i < data.length; i++) {
-             //      array[i] = data.charCodeAt(i);
-             //    }
+             var buffer = new ArrayBuffer(data.length);
+                var array = new Uint8Array(buffer);
+                for (var i = 0; i < data.length; i++) {
+                  array[i] = data.charCodeAt(i);
+                }
 
-             //    var blob = blobUtil.createBlob(
-             //      [array],
-             //      {type: 'application/pdf', encoding: 'raw'}
-             //    );
+                var blob = blobUtil.createBlob(
+                  [array],
+                  {type: 'application/pdf', encoding: 'raw'}
+                );
 
-             //    console.log(blob);
-             //    var blobURL = blobUtil.createObjectURL(blob);
-             //    console.log(blobURL);
-             //    window.open(blobURL);
+                console.log(blob);
+                var blobURL = blobUtil.createObjectURL(blob);
+                console.log(blobURL);
+                window.open(blobURL);
 
             // blobUtil.dataURLToBlob(imgData).then(function (blob) {
             // // ladies and gents, we have a blob 
@@ -173,7 +173,7 @@ $(window).load(function (){
             // });
            
              // pdf.output('dataurlnewwindow', {}); 
-             pdf.output('datauri'); 
+             // pdf.output('datauri'); 
              // var string = pdf.output('datauristring'); 
              // console.log(string);
                 // window.open(string, _self);

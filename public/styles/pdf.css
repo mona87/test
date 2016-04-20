@@ -16,14 +16,14 @@
 @font-face {}body {
   font-family: 'Klavika','sans-serif';
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden; }
 
 .nav__pdf {
   display: flex;
   height: 130px;
   /*background-color: black;*/
   width: 100%;
-  align-items: center;
   color: white;
   flex-direction: row;
   justify-content: space-around; }
@@ -32,9 +32,10 @@
   background-repeat: no-repeat;
   margin-left: 40px;
   opacity: 1;
-  margin-bottom: 20px; }
+  margin-bottom: 10px; }
 
 .nav--font-size {
+  margin-top: 40px;
   font-size: 35px; }
 
 .section-one-pdf {
@@ -53,6 +54,7 @@
 
 .section-one__wrapper {
   width: 90%;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +72,6 @@
 
 .section-one--img1 {
   background-repeat: no-repeat;
-  margin-top: 50px;
   /*height: 260px;*/
   box-sizing: border-box; }
 
@@ -213,14 +214,17 @@
   height: 25px;
   width: 1%;
   margin-left: 20px;
-  margin-right: 20px; }
+  margin-right: 20px;
+  margin-top: 45px; }
 
 .nav--padding {
   margin-right: 40px; }
 
 .container {
   width: 1786px;
-  height: 2526px; }
+  height: 2526px;
+  position: absolute;
+  top: 100%; }
 
 .section-two-pdf__text {
   position: relative; }
@@ -297,7 +301,7 @@
 .section-two__letter1, .section-two__letter2 {
   font-weight: bold;
   font-size: 55px;
-  padding-top: 20px;
+  padding-top: 23px;
   margin-left: 10px; }
 
 #section-one-roi .section-two-pdf__text {

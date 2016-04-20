@@ -18,6 +18,7 @@ Template Name: ROI Calculator
 		
 </head>
 <body >
+	<div class="wrapper">
 	<div class="modal-background">
 		<div class="modal-box">
 			<div class="close-x"><span>X</span></div>
@@ -206,6 +207,7 @@ Template Name: ROI Calculator
 
 
 	</section>
+	</div>
 <!-- 	<div class="container">
 	<nav class="nav__pdf nav--width">
 		<div class="nav--bgImage nav--bgImage--filter"></div>

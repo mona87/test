@@ -29,7 +29,7 @@ console.log(params.num_agents);
 //add values
 $('.agents').html(params.num_agents);
 $('.training').html(params.training_days);
-$('.churn').html(params.percent_churn + '%');
+$('.churn').html((params.percent_churn * 100)+ '%');
 $('.cost').html('$' + params.cost_per_hour);
 
 if(params !== null){
