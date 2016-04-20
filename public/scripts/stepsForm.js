@@ -133,16 +133,15 @@
 	};
 
 	stepsForm.prototype._prevQuestion = function() {
-		if( !this._validade() ) {
-			return false;
-		}
+		// if( !this._validade()) {
+		// 	return false;
+		// }
 
 		//reset count
 		if(this.current >= this.questions.length){
 			this.current = this.questions.length;
 
 		}
-		console.log('prev ', this.current);
 		// current question
 		var currentQuestion = this.questions[ this.current ];
 		
@@ -151,7 +150,7 @@
 			document.querySelector('.prev').style.display = 'none';
 
 		}else{
-				document.querySelector('.prev').style.display = 'block';
+			document.querySelector('.prev').style.display = 'block';
 		}
 
 		//show and hide next arrow
@@ -245,35 +244,17 @@
 
 		// current question
 		var currentQuestion = this.questions[ this.current ];
-	
-	// 	if(this.current >= 3){
-	// 		console.log('current is equal to 3 ',this.current);
-	// 		// increment current question iterator
-	// 		++this.current;
-	// 		// update progress bar to 100% and then reset to current
-	// 		this._progress();
-	// 		--this.current;
 
-	// 	}else{
-
-	// 	// increment current question iterator
-	// 	++this.current;
-	// 		// console.log('current ', this.current);
-	// 	// update progress bar
-	// 	this._progress();
-	// }
 
 			++this.current;
-	// 		// console.log('current ', this.current);
-	// 	// update progress bar
+	 	// update progress bar
 		if(this.current <= this.questions.length - 1 ){
 				this._progress();
 		}
 	
 
 		if( this.current <= this.questions.length-1) {
-					// console.log('current ', this.current);
-					// console.log('length ', this.questions.length-1);
+		
 			// change the current question number/status
 			this._updateQuestionNumber();
 			//hack to remove extra numbers from questionStatus

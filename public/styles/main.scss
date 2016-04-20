@@ -212,7 +212,7 @@ nav span{
 }
 #page1 h4{
 	margin-top: 0;
-	max-width: 700px;
+	max-width: 550px;
 	text-align: center;
 	font-weight: lighter;
 }
@@ -451,6 +451,11 @@ nav span{
     margin-right: 50px;
     margin-left: 50px;
 
+}
+
+.email-form input{
+	padding-left: 10px;
+	box-sizing: border-box;
 }
 
 .mini-title{
@@ -778,7 +783,69 @@ nav span{
 	display: none;
 
 }
+
+.modal-background{
+	display: none;
+	width: 100%;
+	left: 0; 
+    top: 0;
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgba(42,44,48,.95);
+    align-items: center;
+    z-index: 10;
+    justify-content: center;
+
+}
+
+.modal-box{
+	height: 200px;
+	width: 500px;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	font-size: 25px;
+	border-radius: 10px;
+
+}
+
+.close-modal{
+    border: none;
+    width:  200px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color:  #fff;
+    background-color: #2A2C30;
+    font-size: 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.close-x{
+    margin-top: 20px;
+    width: 100%;
+    text-align: right;
+    margin-right: 50px;
+    font-size: 15px;
+
+}
  
+ .modal-text{
+ 	margin-top: 20px;
+ }
+
+ .close-x span{
+ 	width: 20px;
+ 	height: 20px;
+ 	text-align: center;
+ 	display: inline-block;
+ 	cursor: pointer;
+ }
 
 
 @media (max-width: 800px){

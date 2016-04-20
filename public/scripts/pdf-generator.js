@@ -1,17 +1,17 @@
+$(function(){
+    var scale = 'scale(.)';
+document.body.style.webkitTransform = scale;  // Chrome, Opera, Safari
+ document.body.style.msTransform =  scale;     // IE 9
+ document.body.style.transform = scale;     // General
 
-//get params from url
+})
 
-// $.ajax({
-//     url: '/api/mail-roi-report'
-// }).done(function(data) {
-//     console.log(data);
-// });
+    console.log('width',$('.container').width());
+    console.log('height',$('.container').height());
 
-
-// $
-
-
-var url ='http://work.style/roi_pdf?num_agents=20000&training_days=14&percent_churn=40.0&cost_per_hour=25.00';
+var url = window.location.href;
+console.log(url);
+var url ='http://work.style/roi_pdf?num_agents=20000&training_days=10&percent_churn=50&cost_per_hour=15.00';
 
 var param_array = url.split('?')[1].split('&');
 
@@ -26,18 +26,18 @@ console.log(params.num_agents);
 //add values
 $('.agents').html(params.num_agents);
 $('.training').html(params.training_days);
-$('.churn').html(params.percent_churn);
-$('.cost').html(params.cost_per_hour);
+$('.churn').html(params.percent_churn + '%');
+$('.cost').html('$' + params.cost_per_hour);
 
 if(params !== null){
 
     console.log(params.num_training_days)
 
-    var training_days = numeral().unformat(params.percent_churn);
-    var percent_churn = numeral().unformat(params.percent_churn);
+    var cost_per_hour = numeral().unformat(params.cost_per_hour);
+    var percent_churn = '.' + numeral().unformat(params.percent_churn);
 
-    // calculateROI(params.num_agents, training_days, percent_churn, params.cost_per_hour);
-     calculateROI(500, 10, .50, 15);
+    calculateROI(params.num_agents, params.training_days, percent_churn, cost_per_hour);
+     // calculateROI(500, 10, .50, 15);
 }
 
     function calculateROI(agentNum, trainingDaysNum, churnNum, costPerHour ){
@@ -51,17 +51,17 @@ if(params !== null){
          var trainingDays = trainingDaysNum * dailyAgentCost;
          var proficiencyCost = .25 * annualAgentCost;
          var newAgentCost = trainingDays + proficiencyCost;
-         var totalChurnCost = newAgentCost * 250;
+         var totalChurnCost = newAgentCost *(agentNum * churnNum);
          var churnSavings = totalChurnCost * .1;
 
          //workstyle cost
-         var setUpAgents = 100 * agentNum;
-         var setUpChurnAgents = (agentNum * churnNum) * 100;
+         var setUpAgents = 125 * agentNum;
+         var setUpChurnAgents = (agentNum * churnNum) * 125;
          var runningCost = 12 * 10 * agentNum;
          var totalCost = setUpAgents + runningCost +  setUpChurnAgents ;
          var averageCost = totalCost/500;
 
-         var ROI = (totalChurnCost/totalCost) * .1;
+         var ROI = (churnSavings-totalCost)/totalCost;
 
 
         var workstyleCosts = churnSavings - totalCost;
@@ -69,13 +69,31 @@ if(params !== null){
 
 
         //update dom with values
+                //section2 values
+        var string = numeral(totalChurnCost).format('(0.0 a)');
+        //get last char and uppercase
+        var letter = string.charAt(string.length - 1).toUpperCase();
+
+        var string2 = numeral(churnSavings).format('(0.0 a)');
+        var letter2 = string2.charAt(string2.length - 1).toUpperCase();
+
+        function newString(string){
+            return string.substring(0, string.length - 1);
+        }
+        function upperCase(string){
+            console.log(string.charAt(string.length - 1).toUpperCase());
+            return string.charAt(string.length - 1).toUpperCase();
+
+        }
 
         //section2 values
-        $('.section-two__value-one').html(numeral(totalChurnCost).format('(0.0 a)'));
-        $('.section-two__value-two').html(numeral(churnSavings).format('(0.0 a)'));
+        $('.section-two__value-one').html(newString(string));
+        $('.section-two__letter1').html(upperCase(letter));
+        $('.section-two__value-two').html(newString(string2));
+        $('.section-two__letter2').html(upperCase(letter2));
         // $('.section-two__value-three').html(numeral(ROI).format('0.00 %')+ ' ROI');
         $('.section-two__value-three').html(numeral(ROI).format('0%')+ ' ROI');
-        $('.section-three__value').html(numeral(newAgentCost).format('$0,0.00'));
+        $('.section-three__value').html(numeral(newAgentCost).format('$0,0'));
 
     }
 
@@ -103,15 +121,22 @@ $(window).load(function (){
            
     };
 
+
+    console.log('height ', $('.container').height());
     html2canvas($('.container'), {
-      width: 2052,
-      height: 2836,
+        height:  $('.container').height(),
       background: '#fff'
     }).then(function(canvas){
         var imgData = canvas.toDataURL('image/jpeg', 1.0);
         // pdf.addImage(imgData, 'JPEG', 0, 0, 513, 709);
-          pdf.addImage(imgData, 'JPEG', 0, 0, 595.08, 822.44);
-        pdf.output('dataurlnewwindow', {}); 
+          pdf.addImage(imgData, 'JPEG', 0, 0, 595.28, 841.89);
+
+      
+             // pdf.output('dataurlnewwindow', {}); 
+             pdf.output('datauri'); 
+             var string = pdf.output('datauristring'); 
+             // console.log(string);
+             //    window.open(string, _self);
          // window.open(imgData)
     });
 
@@ -119,7 +144,7 @@ $(window).load(function (){
 
      pdf.addHTML($('.container'), options, function(){
      	 
-     	pdf.output('dataurlnewwindow', {}) 
+     	// pdf.output('dataurlnewwindow', {}) 
      });
 
 

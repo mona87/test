@@ -18,6 +18,13 @@ Template Name: ROI Calculator
 		
 </head>
 <body >
+	<div class="modal-background">
+		<div class="modal-box">
+			<div class="close-x"><span>X</span></div>
+			<div class="modal-text">Report sent!</div>
+			<button class="close-modal">OKAY</button>
+		</div>
+	</div>
 	<section id="page1">
 		<img class="bgImg" >
 		<section id="main1">

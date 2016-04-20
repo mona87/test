@@ -138,7 +138,7 @@ $(function(){
 	}
 
 
-	function calculateROI(agentNumn, trainingDaysNum, churnNum, costPerHour ){
+	function calculateROI(agentNum, trainingDaysNum, churnNum, costPerHour ){
 
          dailyAgentCost = costPerHour*8;
          annualAgentCost = 235 *8 * costPerHour;
@@ -148,29 +148,30 @@ $(function(){
          trainingDays = trainingDaysNum * dailyAgentCost;
          proficiencyCost = .25 * annualAgentCost;
          newAgentCost = trainingDays + proficiencyCost;
-         totalChurnCost = newAgentCost * 250;
+         totalChurnCost = newAgentCost *(agentNum * churnNum);
          churnSavings = totalChurnCost * .1;
 
          //workstyle cost
-         setUpAgents = 100 * agentNum;
-         setUpChurnAgents = (agentNum * churnNum) * 100;
+         setUpAgents = 125 * agentNum;
+         setUpChurnAgents = (agentNum * churnNum) * 125;
          runningCost = 12 * 10 * agentNum;
          totalCost = setUpAgents + runningCost +  setUpChurnAgents ;
          averageCost = totalCost/500;
 
-         ROI = (totalChurnCost/totalCost) * .1;
+         ROI = (churnSavings-totalCost)/totalCost;
 
 
         var workstyleCosts = churnSavings - totalCost;
        	// console.log(ROI);
         
-        // console.log('agentNum' + agentNum);
-        // console.log('trainingDaysNum ' + trainingDaysNum);
-        // console.log('churnNum ' + churnNum);
-        // console.log('costPerHour ' + costPerHour);
 
+        console.log('costs', totalChurnCost);
+        console.log('gains', churnSavings);
+        console.log('roi' + ROI);
+        console.log('proficiencyCost ' + proficiencyCost);
+        console.log('trainingDays ' + trainingDays);
+        console.log('newAgentCost ' + newAgentCost);
 
-		//update dom with values
 
 		//section2 values
 		var string = numeral(totalChurnCost).format('(0.0 a)');
@@ -188,7 +189,7 @@ $(function(){
 			return string.charAt(string.length - 1).toUpperCase();
 
 		}
-
+		//update values in DOM
 		$('.section-two__value-one').html(newString(string));
 		$('.section-two__letter1').html(upperCase(letter));
 		$('.section-two__value-two').html(newString(string2));
@@ -199,11 +200,24 @@ $(function(){
 		$('#value-two').html(numeral(proficiencyCost).format('$0,0'));
 		$('#value-three').html(numeral(newAgentCost).format('$0,0'));
 
+		//rest values to zero
+		agentNum = 0;
+		trainingDaysNum = 0;
+		churnNum = 0;
+		costPerHour = 0;
+
 	}
 
+	//hide modal
+	$('.close-modal, .close-x span').click(function(){
+		$('.modal-background').hide();
+	});	
 
 	$('#report-button').click(function(e){
 		e.preventDefault();
+
+		$('.modal-background').css({"display":"flex"});
+
 		console.log('fname ', $('.first-name').val());
 		console.log('lname ', $('.last-name').val());
 		console.log('company-name ',$('.company-name').val());
@@ -217,32 +231,32 @@ $(function(){
 
 
 		$.ajax({
-			traditional: true,
 			url: 'https://workstyledevelop.parseapp.com/api/mail-roi-report',
-			type: 'post',
-			headers: { "Content-Type": "application/json"},
-			data: {
-					"first_name": "Hunter",
-					"last_name": "Sinclair",
-					"email": "rbellamy@thinktiv.com",
-					"num_agents": 20000,
-					"training_days": 14,
-					"percent_churn": 40.0,
-					"cost_per_hour": 25.00,
-					"total_inefficiency_cost": 15000000,
-					"total_efficiency_gain": 2000000,
-					"roi_percent": 201.00,
-					"pre_hire_training_cost": 2565.00,
-					"new_hire_variance_cost": 10000.00,
-					"total_losses_per_hire": 12565.00
-				}
-		
+			type: 'POST',
+			dataType:"json",
+			contentType: 'application/json',
+			data: JSON.stringify({ 
+					"data" :{ 
+								"first_name": "Ramona",
+								"last_name": "Bellamy",
+								"email": "rbellamy@thinktiv.com",
+								"num_agents": 20000,
+								"training_days": 14,
+								"percent_churn": 40.0,
+								"cost_per_hour": 25.00,
+								"total_inefficiency_cost": 2000000,
+								"roi_percent": 201.00,
+								"pre_hire_training_cost": 2565.00,
+								"new_hire_variance_cost": 10000.00,
+								"total_losses_per_hire": 12565.00			
+							}
+					})
 		}).done(function(data){
 				console.log(data);
 				console.log(data.status +' '+ data.statusText);
 		}).fail(function(data){
 				console.log(data);
-				console.log(data.status + ' ' + data.statusText);
+				console.log('status: ',data.status + ' ' + data.statusText);
 		});
 
 	});
