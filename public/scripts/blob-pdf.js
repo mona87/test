@@ -12,9 +12,9 @@
 
     // http://work.style/roi_pdf/?num_agents=500&training_days=15&percent_churn=0.5&cost_per_hour=15
 
-var url = window.location.href;
+// var url = window.location.href;
 
-// var url ='http://work.style/roi_pdf?num_agents=20000&training_days=10&percent_churn=50&cost_per_hour=15.00';
+var url ='http://work.style/roi_pdf?num_agents=20000&training_days=10&percent_churn=50&cost_per_hour=15.00';
 console.log(url);
 var param_array = url.split('?')[1].split('&');
 
@@ -135,14 +135,18 @@ $(window).load(function (){
     console.log('height ', $('.container').height());
     html2canvas($('.container'), {
       height: 2526,
+      width: $('.container').width(),
       background: '#fff'
     }).then(function(canvas){
         var imgData = canvas.toDataURL('image/jpeg', 1.0);
+
+            // console.log(imgData);
+
+        //     var data ="data:application/pdf;base64,"+ imgData.substring(23);
+        //     // console.log(data); 
         // pdf.addImage(imgData, 'JPEG', 0, 0, 513, 709);
           pdf.addImage(imgData, 'JPEG', 0, 0, 595.28, 841.89);
-
-
-            var data = pdf.output();
+          var data = pdf.output();
 
              var buffer = new ArrayBuffer(data.length);
                 var array = new Uint8Array(buffer);
@@ -150,7 +154,7 @@ $(window).load(function (){
                   array[i] = data.charCodeAt(i);
                 }
 
-                var blob = blobUtil.createBlob(
+             var blob = blobUtil.createBlob(
                   [array],
                   {type: 'application/pdf', encoding: 'raw'}
                 );
@@ -159,6 +163,52 @@ $(window).load(function (){
                 var blobURL = blobUtil.createObjectURL(blob);
                 console.log(blobURL);
                 window.open(blobURL);
+        //         blobUtil.dataURLToBlob(data).then(function (blob) {
+        //           // success 
+        //           console.log(blob);
+        //              var blobURL = blobUtil.createObjectURL(blob);
+        //                 console.log(blobURL);
+        //                  window.open(blobURL);
+        //         }).catch(function (err) {
+        //           // error 
+        //           console.log(err)
+        //         });
+
+               
+             
+
+
+//                 var BASE64_MARKER = ';base64,';
+
+// function convertDataURIToBinary(dataURI) {
+//   var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+//   var base64 = dataURI.substring(base64Index);
+//   var raw = window.atob(base64);
+//   var rawLength = raw.length;
+//   var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+//   for(i = 0; i < rawLength; i++) {
+//     array[i] = raw.charCodeAt(i);
+//   }
+//   return array;
+// }
+
+                // var ieEDGE = navigator.userAgent.match(/Edge/g);
+                // var ie = navigator.userAgent.match(/.NET/g); // IE 11+
+                // var oldIE = navigator.userAgent.match(/MSIE/g); 
+
+                // // var blob = new window.Blob([resData], { type: 'application/pdf' });
+
+                // if (ie || oldIE || ieEDGE) {
+                //    window.navigator.msSaveBlob(blob, fileName);
+                // }
+                // else {
+                //    var reader = new window.FileReader();
+                //    reader.onloadend = function () {
+                //       window.open(reader.result);
+                //    };
+                //    reader.readAsDataURL(blob);
+                // }
 
             // blobUtil.dataURLToBlob(imgData).then(function (blob) {
             // // ladies and gents, we have a blob 
@@ -181,11 +231,6 @@ $(window).load(function (){
     });
 
 
-
-     // pdf.addHTML($('.container'), options, function(){
-     	 
-     // 	// pdf.output('dataurlnewwindow', {}) 
-     // });
 
 
 
