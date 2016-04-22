@@ -208,21 +208,6 @@
 		else {
 			onEndTransitionFn();
 		}
-		
-			if($('.current > span label').attr('for') === 'q3'){
-				$('.controls div.input-hint:first').show();
-				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').addClass('move-arrow');
-			}
-			else if($('.current > span label').attr('for') === 'q4'){
-				$('.controls div.input-hint:last').show();
-				$('.controls div.input-hint:first').hide();
-				$('.next,.prev').addClass('move-arrow');
-			}else{
-				$('.controls div.input-hint:first').hide();
-				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').removeClass('move-arrow');
-			}
 
 	}
 
@@ -326,26 +311,8 @@
 		
 		if(document.querySelector('#q4').value.length > 0 && this.current > this.questions.length - 1 ){
 			this.current = this.questions.length - 1 ;
-
-
 			self._submit();
-		
 		}
-
-			if($('.current > span label').attr('for') === 'q3'){
-				$('.controls div.input-hint:first').show();
-				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').addClass('move-arrow');
-			}
-			else if($('.current > span label').attr('for') === 'q4'){
-				$('.controls div.input-hint:last').show();
-				$('.controls div.input-hint:first').hide();
-				$('.next,.prev').addClass('move-arrow');
-			}else{
-				$('.controls div.input-hint:first').hide();
-				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').removeClass('move-arrow');
-			}
 
 
 	}
@@ -376,7 +343,7 @@
 	stepsForm.prototype._validade = function() {
 		// current question´s input
 		var input = this.questions[ this.current ].querySelector( 'input' ).value;
-		if( input === '' || input === '$' || input === '%') {
+		if( input === '' ) {
 			this._showError( 'EMPTYSTR' );
 			return false;
 		}
@@ -398,20 +365,11 @@
 		};
 		this.error.innerHTML = message;
 		classie.addClass( this.error, 'show' );
-
-		//change hint position
-		$('.controls div.input-hint:first, .controls div.input-hint:last').css({'top':'20px'});
-
-
-	
 	}
 
 	// clears/hides the current error message
 	stepsForm.prototype._clearError = function() {
 		classie.removeClass( this.error, 'show' );
-		//change hint position
-		$('.controls div.input-hint:first, .controls div.input-hint:last').css({'top':'0px'});
-
 	}
 
 	// add to global namespace

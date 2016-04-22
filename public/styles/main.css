@@ -1,33 +1,72 @@
+/*// @font-face {
+//   font-family: 'Klavika';
+//   font-weight: bold;
+//   src: url('../fonts/klavika/Klavika-Medium.otf'); 
+
+// }*/
 @font-face {
   font-family: 'Klavika';
   font-weight: normal;
-  src: url("../fonts/klavika/Klavika-Regular.otf"); }
+  /* src: url('../fonts/klavika/Klavika-Regular.otf'); */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-regular-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-regular-webfont?#iefix") format("embedded-opentype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-regular-webfont.woff2") format("woff2"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-regular-webfont.woff") format("woff"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-regular-webfont.ttf") format("truetype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-regular-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
   font-family: 'Klavika';
   font-weight: bold;
-  src: url("../fonts/klavika/Klavika-Medium.otf"); }
+  /*  src: url('../fonts/klavika/Klavika-Medium.otf'); */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-medium-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-medium-webfont?#iefix") format("embedded-opentype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-medium-webfont.woff2") format("woff2"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-medium-webfont.woff") format("woff"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-medium-webfont.ttf") format("truetype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-medium-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
   font-family: 'Klavika';
   font-weight: bolder;
-  src: url("../fonts/klavika/Klavika-Bold.otf"); }
+  /*src: url('../fonts/klavika/Klavika-Bold.otf'); */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-bold-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-bold-webfont?#iefix") format("embedded-opentype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-bold-webfont.woff2") format("woff2"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-bold-webfont.woff") format("woff"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-bold-webfont.ttf") format("truetype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-bold-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
   font-family: 'Klavika';
   font-weight: lighter;
-  src: url("../fonts/klavika/Klavika-Light.otf"); }
+  /*src: url('../fonts/klavika/Klavika-Light.otf');*/
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-light-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-light-webfont?#iefix") format("embedded-opentype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-light-webfont.woff2") format("woff2"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-light-webfont.woff") format("woff"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-light-webfont.ttf") format("truetype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-light-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
   font-family: 'Klavika';
   font-style: italic;
-  src: url("../fonts/klavika/Klavika-LightItalic.otf"); }
+  /*src: url('../fonts/klavika/Klavika-LightItalic.otf'); */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-lightitalic-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-lightitalic-webfont?#iefix") format("embedded-opentype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-lightitalic-webfont.woff2") format("woff2"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-lightitalic-webfont.woff") format("woff"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-lightitalic-webfont.ttf") format("truetype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-lightitalic-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
   font-family: 'Klavika';
   font-style: oblique;
   /*font-style: italic;*/
-  src: url("../fonts/klavika/Klavika-MediumItalic.otf"); }
+  /*src: url('../fonts/klavika/Klavika-MediumItalic.otf');*/
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-light-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-mediumitalic-webfont?#iefix") format("embedded-opentype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-mediumitalic-webfont.woff2") format("woff2"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-mediumitalic-webfont.woff") format("woff"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-mediumitalic-webfont.ttf") format("truetype"), url("http://work.style/wp-content/themes/workstyle/dist/fonts/klavika/klavika-mediumitalic-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+
+/*@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {{
+  #page2 {
+    position: relative;
+    margin-bottom: 0; }
+  .wrapper {
+    overflow: hidden; }
+  #main5 .arrow-yellow {
+    bottom: 35px; } }*/
 
 body {
   width: 100%;
@@ -102,8 +141,6 @@ nav span {
   background: url("../images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
-  -webkit-filter: brightness(0.2);
-  filter: brightness(0.2);
   position: absolute;
   z-index: -100;
   height: 800px;
@@ -111,6 +148,19 @@ nav span {
   left: 0;
   top: 0;
   position: fixed;
+  min-height: 100%;
+  min-width: 100%; }
+
+.bgImg-filter {
+  /*content:'';*/
+  display: block;
+  position: absolute;
+  z-index: -50;
+  background: rgba(0, 0, 0, 0.85);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   min-height: 100%;
   min-width: 100%; }
 
@@ -147,7 +197,8 @@ nav span {
 #page2 h3 {
   font-size: 30px;
   font-weight: lighter;
-  text-align: center; }
+  text-align: center;
+  /*for ie*/ }
 
 #page2 h4 {
   font-size: 25px;
@@ -264,7 +315,8 @@ nav span {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; }
+  flex-direction: column;
+  /*  for ie*/ }
 
 #main3 {
   min-height: 375px;
@@ -679,6 +731,8 @@ nav span {
   cursor: pointer; }
 
 @media (max-width: 800px) {
+  #page1 h1 {
+    font-size: 40px; }
   .values {
     flex-direction: column;
     min-height: 600px;
@@ -714,8 +768,10 @@ nav span {
     margin-top: 0;
     text-align: center; }
   .sub-title {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 50px; }
+  h1 .sub-title {
+    font-weight: lighter; }
   #sub-title2 {
     text-align: center;
     font-size: 20px; }
@@ -744,8 +800,6 @@ nav span {
     padding-bottom: 25px; }
   #main3 h2 {
     text-align: center; }
-  #arrow-1 {
-    top: 30px; }
   .icons {
     flex-direction: column;
     margin-top: 0;
@@ -754,10 +808,55 @@ nav span {
     margin-top: 20px; }
   #training, #agents, #churn, #cost {
     display: none; }
-  #navbar div:not(:last-child) {
-    display: none; }
   .arrow-down {
     margin-right: 20px;
     border-width: 15px 15px 0  15px; }
   #main5 .arrow-yellow {
-    top: -30px; } }
+    top: -30px; }
+  h1 .subtitle {
+    margin-bottom: 0; }
+  #page1 h2 {
+    font-size: 18px; }
+  .questions label {
+    font-size: 13px; }
+  #page1 h4 {
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px; }
+  .input-hint {
+    font-size: 12px; }
+  .questions input {
+    height: 40px; }
+  #main1 .sub-title {
+    margin-bottom: 0; }
+  .flyer {
+    display: none; }
+  .nav-logo {
+    left: 20px; }
+  .questions input {
+    padding-left: 10px; }
+  .section-four_wrapper {
+    align-items: center;
+    flex-direction: column;
+    width: 90%; }
+  #main4 .plus, #main4 .equal {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-right: 30px; }
+  #navbar {
+    font-size: 10px; }
+  .nav__blue-slash {
+    margin: 0;
+    height: 15px; }
+  .nav-logo-white {
+    position: relative;
+    bottom: 20px;
+    width: 60px;
+    top: -20px;
+    left: 60px; }
+  .arrow-down {
+    margin-left: 10px;
+    margin-right: 10px; }
+  .nav-logo {
+    width: 70px; } }

@@ -12,9 +12,9 @@
 
     // http://work.style/roi_pdf/?num_agents=500&training_days=15&percent_churn=0.5&cost_per_hour=15
 
-// var url = window.location.href;
+var url = window.location.href;
 
-var url ='http://work.style/roi_pdf?num_agents=20000&training_days=10&percent_churn=50&cost_per_hour=15.00';
+// var url ='http://work.style/roi_pdf?num_agents=20000&training_days=10&percent_churn=50&cost_per_hour=15.00';
 console.log(url);
 var param_array = url.split('?')[1].split('&');
 
@@ -29,7 +29,7 @@ console.log(params.num_agents);
 //add values
 $('.agents').html(params.num_agents);
 $('.training').html(params.training_days);
-$('.churn').html((params.percent_churn * 100)+ '%');
+$('.churn').html(params.percent_churn + '%');
 $('.cost').html('$' + params.cost_per_hour);
 
 if(params !== null){
@@ -141,43 +141,25 @@ $(window).load(function (){
         // pdf.addImage(imgData, 'JPEG', 0, 0, 513, 709);
           pdf.addImage(imgData, 'JPEG', 0, 0, 595.28, 841.89);
 
-             pdf.output('datauri'); 
-            var data = pdf.output();
 
-             var buffer = new ArrayBuffer(data.length);
-                var array = new Uint8Array(buffer);
-                for (var i = 0; i < data.length; i++) {
-                  array[i] = data.charCodeAt(i);
-                }
+            // var data = pdf.output();
 
-                var blob = blobUtil.createBlob(
-                  [array.buffer],
-                  {type: 'application/pdf', encoding: 'raw'}
-                );
+             // var buffer = new ArrayBuffer(data.length);
+             //    var array = new Uint8Array(buffer);
+             //    for (var i = 0; i < data.length; i++) {
+             //      array[i] = data.charCodeAt(i);
+             //    }
+
+             //    var blob = blobUtil.createBlob(
+             //      [array],
+             //      {type: 'application/pdf', encoding: 'raw'}
+             //    );
 
              //    console.log(blob);
              //    var blobURL = blobUtil.createObjectURL(blob);
              //    console.log(blobURL);
              //    window.open(blobURL);
 
-
-                var ieEDGE = navigator.userAgent.match(/Edge/g);
-                var ie = navigator.userAgent.match(/.NET/g); // IE 11+
-                var oldIE = navigator.userAgent.match(/MSIE/g); 
-
-                if (ie || oldIE || ieEDGE) {
-                   window.navigator.msSaveorOpen(blob, 'ROI-report.pdf');
-                }
-                else {
-                   //  console.log('true')
-                   // var reader = new window.FileReader();
-                   // reader.onloadend = function () {
-                   //    window.open(reader.result);
-                   // };
-                   // reader.readAsDataURL(blob);
-                   
-                }
-       
             // blobUtil.dataURLToBlob(imgData).then(function (blob) {
             // // ladies and gents, we have a blob 
             //     console.log(blob)
@@ -191,7 +173,7 @@ $(window).load(function (){
             // });
            
              // pdf.output('dataurlnewwindow', {}); 
-        
+             pdf.output('datauri'); 
              // var string = pdf.output('datauristring'); 
              // console.log(string);
                 // window.open(string, _self);

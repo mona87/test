@@ -14,6 +14,41 @@ Template Name: ROI PDF
 		<link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/pdf.css">
 </head>
 <body>
+<div class="please-wait">
+		<center>
+			<image class="please-wait-image" src="http://work.style/wp-content/themes/workstyle/dist/images/workstyle_loading_white.gif" alt="loading" />
+			<div class="please-wait-text">Preparing your custom report...</div>
+			<div class="please-wait-sep">&nbsp;</div>
+			<ul id="please-wait-quote-rotator">
+  				<li>
+					<div class="please-wait-quote-container">
+						<div class="please-wait-quote">"I believe this model was the most powerful training in my life as a manager."</div>
+						<div class="please-wait-quote-author">-Manager, Coca-Cola</div>
+					</div>
+  				</li>
+  				<li>
+					<div class="please-wait-quote-container">
+						<div class="please-wait-quote">"I discovered that attending to people's psychological needs is key to maintaining a relationship with my customers."</div>
+						<div class="please-wait-quote-author">-Account Manager, Avaya</div>
+					</div>
+  				</li>
+  				<li>
+					<div class="please-wait-quote-container">
+						<div class="please-wait-quote">I believe this model was the most powerful training in my life as a manager."</div>
+						<div class="please-wait-quote-author">-Manager, Coca-Cola</div>
+					</div>
+  				</li>
+  				<li>
+					<div class="please-wait-quote-container">
+						<div class="please-wait-quote">I believe this model was the most powerful training in my life as a manager."</div>
+						<div class="please-wait-quote-author">-Manager, Coca-Cola</div>
+					</div>
+  				</li>
+
+    		</ul>
+
+		</center>
+	</div>
 	<div class="container">
 	<nav class="nav__pdf nav--width">
 		<div class="nav--bgImage nav--bgImage--filter"></div>

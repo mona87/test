@@ -27,9 +27,11 @@ Template Name: ROI Calculator
 		</div>
 	</div>
 	<section id="page1">
+		<div class="bgImg-filter"></div>
 		<img class="bgImg" >
 		<section id="main1">
 		<h1>ROI Calculator<div class="sub-title">for Agent Emotional Connection</div></h1>
+		<h4>Personality connections drive better emotional experiences for customers, and emotion drives loyalty. That makes it a $6 trillion enterprise opportunity.</h4>
 		<h2>What’s YOUR slice of it? Answer these four quick questions and find out: </h2>	
 		<form id="theForm" class="simform" autocomplete="off">
 					<div class="simform-inner">
@@ -39,11 +41,11 @@ Template Name: ROI Calculator
 								<input id="q1" name="q1" type="text" placeholder="Enter your agent count" />
 							</li>
 							<li>
-								<span><label for="q2">How many training days?</label></span>
+								<span><label for="q2">How many days are new agents trained?</label></span>
 								<input id="q2" name="q2" type="text" placeholder="Enter training days per agent" />
 							</li>
 							<li>
-								<span><label for="q3">What is your annual churn?</label></span>
+								<span><label for="q3">What percentage of agents leave yearly?</label></span>
 								<input id="q3" name="q3" type="text" placeholder="Enter your churn rate"/>
 							</li>
 							<li>
@@ -62,11 +64,13 @@ Template Name: ROI Calculator
 								<span class="number-total"></span>
 							</span>
 							<span class="error-message"></span>
+							<div class="input-hint">(Hint: The industry average is 43%)</div>
+							<div class="input-hint">(Hint: The industry average is $17)</div>
 						</div>
 					</div>
 					<span class="final-message"></span>
 				</form>
-				<h4>Personality connections drive better emotional experiences for customers, and emotion drives loyalty. That makes it a $6 trillion enterprise opportunity.</h4>
+				
 				</section>
 	</section>
 	<nav id="navbar">
@@ -97,7 +101,7 @@ Template Name: ROI Calculator
 							<span class="section-two__letter1"></span>
 						</div>
 					</span>
-					<span class="section-two__text">Agent Personality<br/> Inefficiency Costs</span>
+					<span class="section-two__text">Your Current <br/> Agent Losses</span>
 				</div>
 				<div id="gains">
 					<span class="section-two__values">
@@ -108,7 +112,7 @@ Template Name: ROI Calculator
 							<span class="section-two__letter2"></span>
 						</div>
 					</span>
-					<span class="section-two__text">Workstyle Training<br/> Efficiency Gains</span>
+					<span class="section-two__text">Workstyle Training <br/> Agent Savings</span>
 				</div>
 				<div id="roi">
 					<span class="section-two__values">
@@ -122,7 +126,7 @@ Template Name: ROI Calculator
 
 		<section id="main3" class="office-img">
 
-			<h2>Keep the Agents. Lose the Expense.</h2>
+			<h2>What Your Agents are Currently Costing You</h2>
 			<h3><span>Between training and ramp-up time, new hires drain your bottom line long before they contribute to it. And even experienced agents don’t click with every customer they talk to, dealing a blow to your customer experience.</span></h3>
 		</section>
 		<section id="main4">
@@ -147,7 +151,7 @@ Template Name: ROI Calculator
 		</section>
 		<section id="main5" class="office-img2">
 				<div class="arrow-yellow"></div>
-				<h1>The Result?</h1>
+				<h1>How Workstyle Training Saves You Money</h1>
 				<h2>Workstyle shrinks the time between hire date and full output, and teaches ALL of your agents to naturally & easily connect with every customer, every time. 
 				</h2>
 				<div id="white-bar"></div>
@@ -208,79 +212,6 @@ Template Name: ROI Calculator
 
 	</section>
 	</div>
-<!-- 	<div class="container">
-	<nav class="nav__pdf nav--width">
-		<div class="nav--bgImage nav--bgImage--filter"></div>
-		<div class="nav__wrapper">
-			<img class="nav__one nav--logo" height="60" src="images/pdfImages/workstyle-logo.svg"/>
-		</div>
-		<div class="nav__two nav--font-size "><span class="agents"></span> agents</div>
-		<div class="nav-pdf__blue-slash"></div>
-		<div class="nav__three nav--font-size"><span class="training">14 </span> training days</div>
-		<div class="nav-pdf__blue-slash"></div>
-		<div class="nav__four nav--font-size"><span class="churn"> 60</span>% churn</div>
-		<div class="nav-pdf__blue-slash"></div>
-		<div class="nav__five nav--font-size nav--padding">$<span class="cost">20</span> cost/her</div>
-	</nav>
-	<section class="section-one-pdf">
-		<div class="section-one__wrapper">
-			<div class="section-one-pdf__values">
-					<div id="section-one-inefficientCosts">
-							<span class="section-two-pdf__values">
-							<div class="section-two__arrow-up"></div>
-							<span class="section-two__dollar">$</span>
-								<span class="section-two__value-one">0</span>
-						</span>
-						<span class="section-two-pdf__text">Agent Personality<br/> Inefficiency Costs</span>
-					</div>
-					<div id="section-one-gains">
-						<span class="section-two-pdf__values">
-							<div class="section-two__arrow-down"></div>
-							<span class="section-two__dollar">$</span>
-								<span class="section-two__value-two">0</span>
-						</span>
-						<span class="section-two-pdf__text">Workstyle Training<br/> Efficiency Gains</span>
-					</div>
-					<div id="section-one-roi">
-						<span class="section-two-pdf__values">
-							<span class="section-two__value-three">0</span>
-						</span>
-						<span class="section-two-pdf__text">WITH WORKSTYLE</span>
-					</div>
-			</div>
-		</div>
-		<div>
-			<img class="section-one__text section-one--img1" height="350" src="images/pdfImages/section1-text.svg"/>
-		</div>
-	</section>
-	<section class="section-one-part-two">
-		<div class="section-one-part-two__wrapper-two">
-			<img class="section-one-part-two__blocks section-one-part-two--img2" height="300" src="images/pdfImages/blocks.svg"/> 
-		</div>
-	</section>
-	<section class="section-two-pdf section-two--bgImage section-two--filter">
-		<div class="section-two-pdf__wrapper">
-			<img class="section-two-pdf__text" height="300" src="images/pdfImages/section2-text.svg"/>
-		</div>
-	</section>
-	<section class="section-three">
-		<div class="section-three__wrapper">
-			<div class="section-three__value"></div>
-			<img class="section-three__text" height="350" src="images/pdfImages/section3-text.svg" />
-		</div>
-	</section>
-	<section class="section-four">
-		<div class="section-four___wrapper">
-			<img class="section-four__text" height="200" src="images/pdfImages/section4-text.svg"/>
-			<img class="section-four__computer" height="850" src="images/pdfImages/computer.svg"/>			
-		</div>
-	</section>
-	<footer class="footer">
-		<div class="footer__wrapper">
-			<img class="footer__text" height="85" src="images/pdfImages/footer.svg" />
-		</div>
-	</footer>
-	</div> -->
 
 			<script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
 			<script src="http://work.style/wp-content/themes/workstyle/dist/scripts/modernizr.custom.js"></script>

@@ -193,16 +193,9 @@
 	color: rgba(0,0,0,0.5);
 }
 
-.prev.move-arrow:after{
-	top:12px;
-}
-
-.next.move-arrow:after{
-	top:13px;
-}
-
 .next::after{
-	position: absolute;
+	/*remove for ie*/
+	/*position: absolute;*/
 	/*top: -2px;*/
 	left: 0;
 	width: 100%;
@@ -218,15 +211,18 @@
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	/*ie*/	
+	bottom: 40px;
 }
 
 .next.show.toggle::after{
 	color: rgba(3,146,157, 0.9);
+
 }
 
 .prev::after{
 	transform: rotate(180deg);
-	position: absolute;
+	/*position: absolute;*/
 	/*top: 0;*/
 	left: 0;
 	width: 100%;
@@ -242,6 +238,7 @@
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
 }
 
 .next.show {
@@ -249,6 +246,9 @@
 	-webkit-transform: translateX(0);
 	transform: translateX(0);
 	pointer-events: auto;
+/*	for ie*/
+	bottom:40px;
+
 }
 
 .prev{
@@ -270,6 +270,8 @@
 	transition: transform 0.3s, opacity 0.3s;
 /*	pointer-events: none;*/
 /*	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+	/*ie*/
+	bottom: 40px;
 }
 
 /* Progress bar */
@@ -431,16 +433,20 @@
 .questions input[type="text"]{
 	background-color: rgba(255,255,255,0.65);
 
-
 }
-.questions ::-webkit-input-placeholder{
+.questions ::-webkit-input-placeholder {
 	color: white;
 	 font-family: 'Klavika';
 	 font-style: italic;
-	 	font-weight: lighter;
-
+	 font-weight: lighter;
 }
 
+/*for ie*/
+.questions input:-ms-input-placeholder{
+	color: white;
+	 font-family: 'Klavika';
+	 font-style: italic;
+};
 
 .icon-arrow-left2:before {
     content: "\e900";
