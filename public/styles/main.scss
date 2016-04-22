@@ -1,42 +1,79 @@
-// @font-face {
+/*// @font-face {
 //   font-family: 'Klavika';
 //   font-weight: bold;
 //   src: url('../fonts/klavika/Klavika-Medium.otf'); 
 
-// }
+// }*/
 
 @font-face {
   font-family: 'Klavika';
   font-weight: normal;
-  src: url('../fonts/klavika/Klavika-Regular.otf'); 
+ /* src: url('../fonts/klavika/Klavika-Regular.otf'); */
+  src: url('../fonts/klavika/klavika-regular-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/klavika/klavika-regular-webfont?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/klavika/klavika-regular-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/klavika/klavika-regular-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/klavika/klavika-regular-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/klavika/klavika-regular-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
   font-family: 'Klavika';
   font-weight: bold;
-  src: url('../fonts/klavika/Klavika-Medium.otf'); 
+/*  src: url('../fonts/klavika/Klavika-Medium.otf'); */
+  src: url('../fonts/klavika/klavika-medium-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/klavika/klavika-medium-webfont?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/klavika/klavika-medium-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/klavika/klavika-medium-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/klavika/klavika-medium-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/klavika/klavika-medium-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
   font-family: 'Klavika';
   font-weight: bolder;
-  src: url('../fonts/klavika/Klavika-Bold.otf'); 
+  /*src: url('../fonts/klavika/Klavika-Bold.otf'); */
+  src: url('../fonts/klavika/klavika-bold-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/klavika/klavika-bold-webfont?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/klavika/klavika-bold-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/klavika/klavika-bold-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/klavika/klavika-bold-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/klavika/klavika-bold-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
   font-family: 'Klavika';
   font-weight: lighter;
-  src: url('../fonts/klavika/Klavika-Light.otf'); 
+  /*src: url('../fonts/klavika/Klavika-Light.otf');*/
+  src: url('../fonts/klavika/klavika-light-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/klavika/klavika-light-webfont?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/klavika/klavika-light-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/klavika/klavika-light-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/klavika/klavika-light-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/klavika/klavika-light-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+
 }
 @font-face {
   font-family: 'Klavika';
   font-style: italic;
-  src: url('../fonts/klavika/Klavika-LightItalic.otf'); 
+  /*src: url('../fonts/klavika/Klavika-LightItalic.otf'); */
+  src: url('../fonts/klavika/klavika-lightitalic-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/klavika/klavika-lightitalic-webfont?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/klavika/klavika-lightitalic-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/klavika/klavika-lightitalic-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/klavika/klavika-lightitalic-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/klavika/klavika-lightitalic-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
   font-family: 'Klavika';
   font-style: oblique;
   /*font-style: italic;*/
-  src: url('../fonts/klavika/Klavika-MediumItalic.otf'); 
+  /*src: url('../fonts/klavika/Klavika-MediumItalic.otf');*/
+  src: url('../fonts/klavika/klavika-light-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/klavika/klavika-mediumitalic-webfont?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/klavika/klavika-mediumitalic-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/klavika/klavika-mediumitalic-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/klavika/klavika-mediumitalic-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/klavika/klavika-mediumitalic-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
 
@@ -133,6 +170,7 @@ nav span{
 	background-size: cover;
 	background-repeat: no-repeat;
 	-webkit-filter: brightness(.2);
+	ms-filter: brightness(.2);
 	filter: brightness(.2);
 	position: absolute;
 	z-index: -100;
@@ -144,6 +182,20 @@ nav span{
     min-height: 100%;
     min-width: 100%;
 
+}
+
+.bgImg-filter{
+	/*content:'';*/
+	display: block;
+	position: absolute;
+	z-index: -50;
+	background: rgba(0,0,0,0.85);
+	top:0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	min-height: 100%;
+    min-width: 100%;
 }
 
 #page1{
@@ -183,6 +235,8 @@ nav span{
 	font-size: 30px;
 	font-weight: lighter;
 	text-align: center;
+	/*for ie*/
+	margin-top: 75px;
 }
 #page2 h4{
 	font-size: 25px;
@@ -327,6 +381,9 @@ nav span{
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	/*  for ie*/
+  box-sizing: border-box;
+  padding-top:10px;
 
 }
 
@@ -349,6 +406,8 @@ nav span{
 #main3 h2, #main3 h3{
 	position: relative;
 	z-index: 2;
+	/*for ie*/
+	margin-top: 75px;
 }
 
 #main3 h2{
@@ -547,7 +606,9 @@ nav span{
 
 }
 #main5 .arrow-yellow{
-	bottom: 75px;
+/*	bottom: 75px;*/
+	/*for ie*/
+	bottom:35px;
     position: relative;
 
     z-index: 3;

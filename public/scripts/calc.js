@@ -28,6 +28,8 @@ $(function(){
 
 	var ROI = 0;
 
+	$('input').val('');
+
 	//listen for keydown event
 	$('input').on('keydown', function(e){	
 		//autopopluate dollar sign
