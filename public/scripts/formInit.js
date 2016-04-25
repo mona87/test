@@ -1,19 +1,17 @@
-// var scrollHandler = $(window).scroll(function(e) {   
-//     if($(document).scrollTop() >=100) {
-//        $(document).scrollTop(100);
-//     }
-// });
 
-
-
+ 	// for ie 10 and 11
+		var isIE11 = !!window.MSStream;
 
 		//after submitting form
 		var theForm = document.getElementById('theForm');
 
+		 if(isIE11){
+		 	$('.next, .prev').css({'bottom':'55px'});
+			$('.next, .prev').addClass('move-arrow-ie2');
+		}
+
 		new stepsForm(theForm, {
 		    onSubmit: function(form) {
-
-		    	// $(window).off("scroll", scrollHandler);
 
 		        $('body').css({ "overflow": "visible" });
 		        $('.bgImg').css({ "min-height": "100%" });
@@ -29,31 +27,49 @@
 		        // $('#navbar ').css("display", "flex");
 		        $('.bgImg').css({"position": "absolute"});
 
-		        // hide form
-		        // classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
+					if(isIE11){
+					 //   /* Something */
+					 // }
+			        	//for ie11
+			         // if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
+	    				$('.wrapper').addClass('ie');
+	    				$('#page2').css({'position':'relative','margin-bottom':'-700px'});
+	    				$('#main5 .arrow-yellow').addClass('ie-arrow-pos');
+	    				$('.values > div').addClass('.ie-values-padding');
+	    				$('#main4 div:not(:first-child)').css({'min-width':'inherit','width':'inherit'});
+	    				$('.values > div').css({'padding-top':'10px'});
+	    				$('#main3 h2').css({'padding-top':'50px'});		
+	    				$('#costPerHire, #variance, #losess').css({'max-width':'250px'});	
+						$('.plus, .equal').css({'min-width':'250px','width':'250px','min-width': '75px', 'width':'auto'});	
+					}
 
-		        /*
-		        form.submit()
-		        or
-		        AJAX request (maybe show loading indicator while we don't have an answer..)
-		        */
+				// //only ie10 -fix column sizing
+				// if ("onpropertychange" in document && !!window.matchMedia) {
+					
+						
+				// }
 
-		        // let's just simulate something...
-		        // var messageEl = theForm.querySelector('.final-message');
-		        // messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
-		        // classie.addClass(messageEl, 'show');
-		    }
+		
+
+		   }
 		});
 
 
 		//toggle page slide
 		$('.open').click(function() {
+
+
 		    //hides form
 		    if ($('#page1').hasClass('toggled')) {
 		        $('.bgImg').css({ "min-height": "100%" });
 		        $('#page1').css({ "transform": "translateY(-725px)" }).removeClass('toggled');
 		        $('#page2').css({ "transform": "translateY(-700px)","margin-bottom":"-700px" });
 		        $('.arrow-down').css({"margin-bottom":"5px", "transform": "rotate(180deg)"});
+		        	 if(isIE11){
+			  	    // $('.wrapper').addClass('ie');
+    				$('#page2').css({'position':'relative','margin-bottom':'-700px'});
+
+			  	}
 
 		    } else {
 		        $('.bgImg').css({ "min-height": "0" });
@@ -61,7 +77,13 @@
 		        $('#page2').css({ "transform": "translateY(0px) " });
 		        $('.arrow-down').css({"margin-bottom":"0px", "transform": "rotate(0deg)"});
 
+		        	 if(isIE11){
+   					// $('.wrapper').addClass('ie');
+    				$('#page2').css({'position':'relative','margin-bottom':'0px'})
+			  	}
 		    }
+
+
 		});
 
 

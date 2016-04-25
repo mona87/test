@@ -17,6 +17,7 @@
 	
 	'use strict';
 
+
 	var transEndEventNames = {
 			'WebkitTransition': 'webkitTransitionEnd',
 			'MozTransition': 'transitionend',
@@ -50,6 +51,9 @@
 	stepsForm.prototype._init = function() {
 		// current question
 		this.current = 0;
+
+		// for ie 10 and 11
+		this.isIE11 = !!window.MSStream;
 
 		// questions
 		this.questions = [].slice.call( this.el.querySelectorAll( 'ol.questions > li' ) );
@@ -198,7 +202,9 @@
 					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
 					self.questionStatus.removeChild( self.nextQuestionNum );
 					// force the focus on the next input
-					prevQuestion.querySelector( 'input' ).focus();
+
+						prevQuestion.querySelector( 'input' ).focus();
+
 				}
 			};
 
@@ -208,20 +214,37 @@
 		else {
 			onEndTransitionFn();
 		}
-		
+	
+
 			if($('.current > span label').attr('for') === 'q3'){
 				$('.controls div.input-hint:first').show();
 				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').addClass('move-arrow');
+			
+				if(this.isIE11){
+					$('.next, .prev').css({'bottom':'80px'});
+				}else{
+					$('.next, .prev').addClass('move-arrow');	
+				}	
+			
 			}
 			else if($('.current > span label').attr('for') === 'q4'){
 				$('.controls div.input-hint:last').show();
 				$('.controls div.input-hint:first').hide();
-				$('.next,.prev').addClass('move-arrow');
+		
+				if(this.isIE11){
+					$('.next, .prev').css({'bottom':'80px'});
+				}else{
+					$('.next,.prev').addClass('move-arrow');
+				}
+
 			}else{
 				$('.controls div.input-hint:first').hide();
 				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').removeClass('move-arrow');
+				if(this.isIE11){
+					$('.next, .prev').css({'bottom':'55px'});
+				}else{
+					$('.next, .prev').removeClass('move-arrow');
+				}
 			}
 
 	}
@@ -299,7 +322,9 @@
 				}
 				if( self.current >= self.questions.length - 1 ) {
 					self.current = self.questions.length - 1 ;
-					nextQuestion.querySelector( 'input' ).focus();
+						nextQuestion.querySelector( 'input' ).focus();
+
+					
 					// self._submit();
 				}
 				else {
@@ -307,7 +332,10 @@
 					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
 					// self.questionStatus.removeChild( self.nextQuestionNum );
 					// force the focus on the next input
-					nextQuestion.querySelector( 'input' ).focus();
+
+						nextQuestion.querySelector( 'input' ).focus();
+
+					
 				}
 			};
 
@@ -332,19 +360,34 @@
 		
 		}
 
+
 			if($('.current > span label').attr('for') === 'q3'){
 				$('.controls div.input-hint:first').show();
 				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').addClass('move-arrow');
+		
+				if(this.isIE11){
+					$('.next, .prev').css({'bottom':'80px'});
+				}else{
+					$('.next, .prev').addClass('move-arrow');
+				}
 			}
 			else if($('.current > span label').attr('for') === 'q4'){
 				$('.controls div.input-hint:last').show();
 				$('.controls div.input-hint:first').hide();
-				$('.next,.prev').addClass('move-arrow');
+				if(this.isIE11){
+					$('.next, .prev').css({'bottom':'80px'});
+				}else{
+					$('.next, .prev').addClass('move-arrow-ie');
+				}
 			}else{
 				$('.controls div.input-hint:first').hide();
 				$('.controls div.input-hint:last').hide();
-				$('.next, .prev').removeClass('move-arrow');
+				if(this.isIE11){
+					$('.next, .prev').css({'bottom':'55px'});
+				}else{
+					$('.next, .prev').removeClass('move-arrow');
+				}
+				
 			}
 
 
