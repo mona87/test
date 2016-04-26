@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: ROI Calculator
+Template Name: ROI Calculator Page
 */
 ?>
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ Template Name: ROI Calculator
 		
 		<link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/pdf.css" />
 		<link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/main.css"/>
+
 		
 </head>
 <body >
@@ -30,7 +31,7 @@ Template Name: ROI Calculator
 		<div class="bgImg-filter"></div>
 		<img class="bgImg" >
 		<section id="main1">
-		<h1>ROI Calculator<div class="sub-title">for Agent Emotional Connection</div></h1>
+		<h1>ROI Calculator</h1><div class="sub-title">for Agent Emotional Connection</div>
 		<h4>Personality connections drive better emotional experiences for customers, and emotion drives loyalty. That makes it a $6 trillion enterprise opportunity.</h4>
 		<h2>What’s YOUR slice of it? Answer these four quick questions and find out: </h2>	
 		<form id="theForm" class="simform" autocomplete="off">
@@ -88,7 +89,7 @@ Template Name: ROI Calculator
 	<section id="page2">
 		<section id="main2">
 			<h1>Lower Costs. Increase Efficiency. Improve CX.</h1>
-			<h3>Training your agents to better connect with your customers with Workstyle is a smart investment.</h3>
+			<h3>Forrester reports 35% of customer satisfaction stems from employee engagement rates. Training your agents to better connect with your customers with Workstyle is a smart investment.</h3>
 			<div id="blue-bar"></div>
 			<h4>YOUR RESULTS:</h4>
 			<div class="values">
@@ -192,10 +193,13 @@ Template Name: ROI Calculator
 					<div id="report-section">
 					<form class="email-form">
 						<input class="first-name"/>
+						<div class="form-error" id="first-name-err"> Please enter a name</div>
 						<label>FIRST NAME</label>
 						<input class="last-name"/>
+						<div class="form-error" id="last-name-err"> Please enter a name</div>
 						<label>LAST NAME</label>
 						<input class="company-name"/>
+						<div class="form-error" id="email-err"> Please enter a valid email address</div>
 						<label>COMPANY EMAIL</label>
 					</form>
 				</div>
@@ -203,10 +207,10 @@ Template Name: ROI Calculator
 				<button id="report-button">SEND MY FREE REPORT</button>
 			</section>
 			<footer id="footer">
-						<div>Terms of Service</div>
-						<div>Privacy Policy</div>
-						<div>About</div>
-						<div>Blog</div>
+						<div><a href="http://work.style/web-use-policy/">Website Use Policy</a></div>
+						<div><a href="http://work.style/privacy-policy/">Privacy Policy</a></div>
+						<div><a href="http://work.style/about/">About</a></div>
+						<div><a href="http://www.mattersight.com/about-us/patents/">Patents</a></div>
 			</footer>
 
 
@@ -218,10 +222,9 @@ Template Name: ROI Calculator
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 			<script src="http://work.style/wp-content/themes/workstyle/dist/scripts/classie.js"></script>
 			<script src="http://work.style/wp-content/themes/workstyle/dist/scripts/stepsForm.js"></script> 
-				<script type="text/javascript" src="http://work.style/wp-content/themes/workstyle/dist/scripts/jspdf.debug.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
 			<script src="http://work.style/wp-content/themes/workstyle/dist/scripts/calc.js"></script>
 			<!-- <script src="http://work.style/wp-content/themes/workstyle/dist/scripts/validator.min.js"></script> -->
+			<script src="http://work.style/wp-content/themes/workstyle/dist/scripts/validator.min.js"></script>
 			<!-- <script src="bundle.js"></script> -->
 			<script src="http://work.style/wp-content/themes/workstyle/dist/scripts/formInit.js"></script>
 			 <!-- <script src="scripts/pdf-generator.js"></script> -->

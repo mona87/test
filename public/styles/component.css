@@ -202,13 +202,13 @@
 
 }
 
-.prev.move-arrow-ie::after{
+/*.prev.move-arrow-ie::after{
 	top:12px;
 }
 
 .next.move-arrow-ie::after{
 	top:13px;
-}
+}*/
 
 .next.move-arrow-ie2::after{
 	top:13px;

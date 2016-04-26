@@ -171,11 +171,8 @@ $(function() {
         totalCost = setUpAgents + runningCost + setUpChurnAgents;
         averageCost = totalCost / 500;
 
-        ROI = (existUnderperform - totalCost) / totalCost;
-
-        if (ROI <= 0) {
-            ROI = 1;
-        }
+        // ROI = (existUnderperform - totalCost) / totalCost;
+        ROI = existUnderperform/totalCost;
 
 
         var workstyleCosts = churnSavings - totalCost;
@@ -186,8 +183,8 @@ $(function() {
         console.log('agentProductivityImprove ', agentProductivityImprove);
         console.log('existUnderperform ', existUnderperform);
         console.log('costs', totalChurnCost);
-        console.log('gains', churnSavings);
-        console.log('roi' + ROI);
+        console.log('gains ', churnSavings);
+        console.log('roi ' + ROI);
         console.log('proficiencyCost ' + proficiencyCost);
         console.log('trainingDays ' + trainingDays);
         console.log('newAgentCost ' + newAgentCost);
@@ -215,7 +212,7 @@ $(function() {
         $('.section-two__letter1').html(upperCase(letter));
         $('.section-two__value-two').html(newString(string2));
         $('.section-two__letter2').html(upperCase(letter2));
-        $('.section-two__value-three').html(numeral(ROI).format('0%') + ' ROI');
+        $('.section-two__value-three').html(numeral(ROI).format('0.0') + 'x ROI');
 
         $('#value-one').html(numeral(trainingDays).format('$0,0'));
         $('#value-two').html(numeral(proficiencyCost).format('$0,0'));
@@ -237,7 +234,7 @@ $(function() {
     $('#report-button').click(function(e) {
         e.preventDefault();
 
-        $('.modal-background').css({ "display": "flex" });
+
 
         console.log('fname ', $('.first-name').val());
         console.log('lname ', $('.last-name').val());
@@ -249,36 +246,56 @@ $(function() {
         var totalInefficiencyCost = $('.section-two__value-one').val();
         var totalEfficiencyGain = $('.section-two__value-two').val();
 
+        if(validator.isNull(firstName)){
+      		$('#first-name-err').show();
+      	}else{
+      		$('#first-name-err').hide();
+      	}
+      	if(validator.isNull(lastName)){
+      			$('#last-name-err').show();
+      	}else{
+      		$('#last-name-err').hide();
+      	}
+      	if(validator.isNull(email) || !validator.isEmail(email)){
+     			$('#email-err').show();
+      	}else{
+      		$('#email-err').hide();
+      	}
 
+      	if( firstName.length > 0  && lastName.length > 0 && validator.isEmail(email)){
+      		console.log('sent')
 
-        $.ajax({
-            url: 'https://workstyledevelop.parseapp.com/api/mail-roi-report/',
-            type: 'POST',
-            dataType: "json",
-            contentType: 'application/json',
-            data: JSON.stringify({
-                "data": {
-                    "first_name": firstName,
-                    "last_name": lastName,
-                    "email": email,
-                    "num_agents": agentNum,
-                    "training_days": trainingDaysNum,
-                    "percent_churn": churnNum,
-                    "cost_per_hour": costPerHour,
-                    "total_inefficiency_cost": 2000000,
-                    "roi_percent": ROI,
-                    "pre_hire_training_cost": 2565.00,
-                    "new_hire_variance_cost": 10000.00,
-                    "total_losses_per_hire": 12565.00
-                }
-            })
-        }).done(function(data) {
-            console.log(data);
-            console.log(data.status + ' ' + data.statusText);
-        }).fail(function(data) {
-            console.log(data);
-            console.log('status: ', data.status + ' ' + data.statusText);
-        });
+		        $.ajax({
+		            url: 'https://workstyledevelop.parseapp.com/api/mail-roi-report/',
+		            type: 'POST',
+		            dataType: "json",
+		            contentType: 'application/json',
+		            data: JSON.stringify({
+		                "data": {
+		                    "first_name": firstName,
+		                    "last_name": lastName,
+		                    "email": email,
+		                    "num_agents": agentNum,
+		                    "training_days": trainingDaysNum,
+		                    "percent_churn": churnNum,
+		                    "cost_per_hour": costPerHour,
+		                    "total_inefficiency_cost": 2000000,
+		                    "roi_percent": ROI,
+		                    "pre_hire_training_cost": 2565.00,
+		                    "new_hire_variance_cost": 10000.00,
+		                    "total_losses_per_hire": 12565.00
+		                }
+		            })
+		        }).done(function(data) {
+		        	$('.modal-background').css({ "display": "flex" });
+		            console.log(data);
+		            console.log(data.status + ' ' + data.statusText);
+		        }).fail(function(data) {
+		            console.log(data);
+		            console.log('status: ', data.status + ' ' + data.statusText);
+		        });
+
+		    }
 
     });
 
