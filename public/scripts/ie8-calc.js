@@ -1,9 +1,6 @@
-// var numeral = require('numeral')
-
 $(document).ready(function() {
-
-    var isIE9 = false;
     var isIE8 = false;
+
 
     var dailyAgentCost = costPerHour * 8;
     var annualAgentCost = 235 * 8 * costPerHour;
@@ -29,120 +26,56 @@ $(document).ready(function() {
 
     var ROI = 0;
 
-    $('input').val('');
+    if ($('html').is('.lte-ie8')) {
 
-    //check for ie9
-    if ($('html').is('.lte-ie9')) {
-        isIE9 = true;
-    }
-    if($('html').is('.lte-ie8')){
-        isIE8 = true;
-    }
+        $('.open-ie8').click(function() {
+        	$('#navbar').show();
+            slide();
 
-    if(!isIE8){
-    //listen for keydown event
-    $('input').on('keydown', function(e) {
-        //autopopluate dollar sign
-        if ($('.current input').attr('name') === 'q4') {
-            if ($('#q4').val().charAt(0) !== '$') {
-                $('#q4').val('$' + $('.current input').val());
-            }
-        }
+        });
 
-        //calculate values
-        if (e.which == 13) {
-            // addHints();
-            getValues();
-
-            if(isIE9){
-
-             if($('.current input').attr('name') === 'q4' && $('.current input').val().length > 1 ){
-                slide();
-                if($('.nav-bar-ie').css('display') === 'none'){
-                    $('.nav-bar-ie').css({'display':'block'});
-                }else{
-                      $('.nav-bar-ie').css({'display':'none'});
-                }
-
-                 $('#navbar, #navbar > div, #navbar img:not(:first-child), #navbar span').css({'display':'inline-block'});
-            }
-        }
-        }
+        $('input').val('');
 
 
+        $('.input-1').addClass('current-input');
+        // $('.current-input').show();
+        $('.current-input > input').focus();
 
-    });
-    //autopopulate %
-    $('#q3').on('keyup', function(e) {
+        $('input').on('keydown', function(e) {
+        	$('.current-input > .label-ie').hide();
+        	if ($('.current-input > input').attr('name') === 'q4') {
+           	 	if ($('#q4').val().charAt(0) !== '$') {
+               		 $('#q4').val('$' + $('.current-input > input').val());
+            	}
+        	}
 
-  
-        var current = $('#q3').val();
+        	    if (e.which == 13) {
+        	    	
+        	    	 getValues();
+            		nextQuestion(e);
+            		 // showBlueArrow();
+       		 }
+        });
 
-        if (e.keyCode >= 48 && e.keyCode <= 57) {
-            var newString = current.replace(/%/g, '');
-            $('#q3').val(newString + '%');
-            //position cursor right before %  
-            document.querySelector('#q3').setSelectionRange($('#q3').val().length - 1, $('#q3').val().length - 1);
+        $('.next-arrow').on('click', function(e) { 
+        	
+        		 getValues();    
+        		 nextQuestion(e);
+        		  // showBlueArrow();
+        		
+        		  
+        });
 
-        }
-    });
-    //toggles arrow color
-    $('input').on('input', function() {
+        $('.prev-arrow').on('click', function(e) { 
+        	
+        		 getValues();     
+        		 prevQuestion(e);
+        		 // showBlueArrow();
+        		     
+        });
 
-        checkInput();
-    });
-
-
-
-
-        if(isIE9){ 
-
-            //listen for button click
-            $('.next').click(function() {
-                    getValues();
-                  
-                    checkInput();                   
-                    if($('.current input').attr('name') === 'q4' && $('.current input').val().length > 1){
-                        slide(); 
-
-                         $('#navbar > div, #navbar img:not(:first-child), #navbar span').css({'display':'inline-block'});
-                    }
-                     if($('.current input').attr('name') === 'q4'){
-                        $('.number-current').val('');
-                     }
-             
-              }); 
-
-            $('.open').click(function(){
-                        slide(); 
-                            if($('.nav-bar-ie').css('display') === 'none'){
-                                // $('.nav-bar-ie').css({'display':'block'});
-                                //  $('#navbar').css({'background-image':'url("../images/background.png")'});
-
-                            }else{
-                                  $('.nav-bar-ie').css({'display':'none'});
-                                   $('#navbar').css({'background-image':'none'});
-                            }
-            });
-
-        }else{
-                   //all other browsers
-                $('.next').click(function() {
-                    getValues();                  
-                    checkInput();
-
-                });
-        }
- 
-
-    $('.prev').click(function() {
-        getValues();
-     
-        checkInput();
-    });
-
-     function slide() {
-            $('#page2').show();
+        function slide() {
+        	$('#page2').show();
 
             if ($('#page1').height() === 800) {
 
@@ -153,23 +86,142 @@ $(document).ready(function() {
 
         }
 
-    //autopopulate fields
-    function updateDollar(input, id) {
+        function nextQuestion(e) {
+        	if(notEmpty()){
+        		
+        		 increaseProgressBar();
+        		
 
-        var val = input;
-        // console.log(val);
-        //autopopulate $
+                $('.current-input').blur();
+
+                if ($('.input-4').hasClass('current-input') &&  $('#q4').val().length >= 2) {
+                	$('#navbar').show();
+                    slide();
+                    $('.error-message-ie8').hide();
+
+                } else if($('.input-4').hasClass('current-input') &&  $('#q4').val().length  <2){
+                		$('.error-message-ie8').show();
+                }else {
+                	$('.error-message-ie8').hide();
+                    $('.questions').find('.current-input')
+
+                    .removeClass('current-input')
+                        .next()
+                        .addClass('current-input');
+    						$('.current-input > input').focus();
+    					    
+                        	showHint();
+                }
+              }
+            
+            
+        }
+        	
+
+	            //autopopulate %
+	    $('#q3').on('keyup', function(e) {
+
+	  
+	        var current = $('#q3').val();
+
+	        if (e.keyCode >= 48 && e.keyCode <= 57) {
+	            var newString = current.replace(/%/g, '');
+	            $('#q3').val(newString + '%');
+	         
+	            //position cursor right before % 
+	            if (document.selection) {
+	           
+	            var rng = document.selection.createRange();
+	            rng.moveEnd("character", -1);
+
+	             rng.select();
+
+	        	}
+	            // $('#q3').val($('#q3').val());
+	            // document.querySelector('#q3').setSelectionRange($('#q3').val().length - 1, $('#q3').val().length - 1);
+
+	        }
+	    });
+
+
+
+        function prevQuestion(e) {
+        		decreaseProgressBar();
+
+                $('.current-input').blur();
+
+                if ($('.input-1').hasClass('current-input')) {
+       
+                   
+
+                } else {
+
+                    $('.questions').find('.current-input')
+
+                    .removeClass('current-input')
+                        .prev()
+                        .addClass('current-input');
+                        $('.current-input > input').focus();
+                        if($('.current-input > input').attr('id') !== 'q3'){
+           				  $('.current-input > input').val($('.current-input > input').val());
+                        }
+                        showHint();
+                }
+            
+        }
+
+        function increaseProgressBar(){
+
+        	var newWidth = $('.progress').width() + 155;
+        	if(newWidth <= 620){
+        		$('.progress').css({'width':newWidth+'px'});
+        	}
+        
+        }
+
+        function decreaseProgressBar(){
+        	var newWidth = $('.progress').width() - 155;
+        	if(newWidth > 0){
+        		$('.progress').css({'width':newWidth+'px'});
+        	}
+        }
+
+        function notEmpty(){
+        	if($('.current-input input').val().length > 0){
+        		
+        		$('.error-message-ie8').hide();
+        		return true
+        	}else{
+        		$('.error-message-ie8').show();
+        		$('.current-input > .label-ie').show();
+        
+        		
+        	}
+        }
+
+        function showHint(){
+        	if($('.current-input > input').attr('id') === 'q3'){
+        		$('.hint-ie8-1').show();
+        		$('.hint-ie8-2').hide();
+        	}else if($('.current-input > input').attr('id') === 'q4'){
+        		$('.hint-ie8-1').hide();
+        		$('.hint-ie8-2').show();
+        	}else{
+        		$('.hint-ie8-2').hide();
+        		$('.hint-ie8-1').hide();
+        	}
+        }
 
     }
 
-    function checkInput() {
-        console.log('checkinput ', $('input').val().length)
-        if ($('.current input').val().length > 0) {
-
-            $('.next.show').addClass('toggle');
-        } else {
-            $('.next.show').removeClass('toggle');
-        }
+    function showBlueArrow(){
+    	if($('.current-input > input').val().length > 0){
+    		$('.blue-arrow').show();
+    		$('.next-arrow').hide();
+    	}else{
+    		$('.blue-arrow').hide();
+    		$('.next-arrow').show();
+    	}
     }
 
     function getValues() {
@@ -200,7 +252,7 @@ $(document).ready(function() {
 
                 churnNum = numeral().unformat($('#q3').val());
 
-                console.log(churnNum);
+           
             }
         }
         if (costPerHour !== null) {
@@ -252,16 +304,16 @@ $(document).ready(function() {
         var workstyleCosts = churnSavings - totalCost;
         // console.log(ROI);
 
-        console.log('noChurn ', noChurn);
-        console.log('agentSubperformance ', agentSubperformance);
-        console.log('agentProductivityImprove ', agentProductivityImprove);
-        console.log('existUnderperform ', existUnderperform);
-        console.log('costs', totalChurnCost);
-        console.log('gains ', churnSavings);
-        console.log('roi ' + ROI);
-        console.log('proficiencyCost ' + proficiencyCost);
-        console.log('trainingDays ' + trainingDays);
-        console.log('newAgentCost ' + newAgentCost);
+        // console.log('noChurn ', noChurn);
+        // console.log('agentSubperformance ', agentSubperformance);
+        // console.log('agentProductivityImprove ', agentProductivityImprove);
+        // console.log('existUnderperform ', existUnderperform);
+        // console.log('costs', totalChurnCost);
+        // console.log('gains ', churnSavings);
+        // console.log('roi ' + ROI);
+        // console.log('proficiencyCost ' + proficiencyCost);
+        // console.log('trainingDays ' + trainingDays);
+        // console.log('newAgentCost ' + newAgentCost);
 
 
         //section2 values
@@ -277,7 +329,7 @@ $(document).ready(function() {
         }
 
         function upperCase(string) {
-            console.log(string.charAt(string.length - 1).toUpperCase());
+       
             return string.charAt(string.length - 1).toUpperCase();
 
         }
@@ -300,7 +352,7 @@ $(document).ready(function() {
 
     }
 
-    //hide modal
+        //hide modal
     $('.close-modal, .close-x span').click(function() {
         $('.modal-background').hide();
     });
@@ -330,21 +382,21 @@ $(document).ready(function() {
       	}else{
       		$('#last-name-err').hide();
       	}
-      	if(validator.isNull(email) || !validator.isEmail(email)){
+      	if(validator.isNull(email)){
      			$('#email-err').show();
       	}else{
       		$('#email-err').hide();
       	}
 
-      	if( firstName.length > 0  && lastName.length > 0 && validator.isEmail(email)){
-      		
-                  if(isIE9){
-                        // console.log('ie9 sent')
+      	if( firstName.length > 0  && lastName.length > 0 && email.length > 0){
+      		console.log('email')
+   		// 
                           $('.modal-background').css({"display":"block"});
-                    }
+   				jQuery.support.cors = true;
 		        $.ajax({
 		            url: 'https://my.work.style/api/mail-roi-report/',
 		            type: 'POST',
+		            crossDomain: true,
 		            dataType: "json",
 		            contentType: 'application/json',
 		            data: JSON.stringify({
@@ -362,24 +414,18 @@ $(document).ready(function() {
 		                    "new_hire_variance_cost": 10000.00,
 		                    "total_losses_per_hire": 12565.00
 		                }
-		            })
-		        }).done(function(data) {
-		        	$('.modal-background').css({ "display": "flex" });
-              
-                  
-		            console.log(data);
-		            console.log(data.status + ' ' + data.statusText);
-		        }).fail(function(data) {
-		            console.log(data);
-		            console.log('status: ', data.status + ' ' + data.statusText);
+		            }),
+		            success:function(data) {
+		             	console.log('success ' + data.status  + ' ' + data.statusText) ;
+      					$('.modal-background').css({ "display": "block" });
+    				},
+    				error: function(data){
+    					console.log('error ' + data.status  + ' ' + data.statusText );
+    				}
+
 		        });
 
 		    }
-
-    });
-
-
-}
-
+		});
 
 });

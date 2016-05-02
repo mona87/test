@@ -14,9 +14,20 @@
 // var classie = require('./classie');
 
 ( function( window ) {
-	
+
+	 var isIE8 = false;
+	 var isIE9 = false;
 	'use strict';
 
+	if($('html').is('.lte-ie8')){
+        isIE8 = true;
+    }
+
+    if($('html').is('.lte-ie9')){
+        isIE9 = true;
+    }
+
+    if(!isIE8){
 
 	var transEndEventNames = {
 			'WebkitTransition': 'webkitTransitionEnd',
@@ -214,6 +225,11 @@
 		else {
 			onEndTransitionFn();
 		}
+			var isIE9 = false;
+				    //check for ie9
+		    if ($('html').is('.lte-ie9')) {
+		            isIE9 = true;
+		    }
 	
 
 			if($('.current > span label').attr('for') === 'q3'){
@@ -224,7 +240,8 @@
 					$('.next, .prev').css({'bottom':'80px'});
 				}else{
 					$('.next, .prev').addClass('move-arrow');	
-				}	
+				}
+
 			
 			}
 			else if($('.current > span label').attr('for') === 'q4'){
@@ -321,8 +338,20 @@
 					this.removeEventListener( transEndEventName, onEndTransitionFn );
 				}
 				if( self.current >= self.questions.length - 1 ) {
-					self.current = self.questions.length - 1 ;
+					var isIE9 = false;		
+					    if($('html').is('.lte-ie9')){
+
+						        isIE9 = true;
+						    }
+						    console.log('iseie9 ', isIE9);
+					if(!isIE9){
 						nextQuestion.querySelector( 'input' ).focus();
+					}else{
+						document.querySelector( '.current > input' ).focus();
+					}
+
+					self.current = self.questions.length - 1 ;
+					console.log('current-next ',self.current)
 
 					
 					// self._submit();
@@ -332,8 +361,11 @@
 					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
 					// self.questionStatus.removeChild( self.nextQuestionNum );
 					// force the focus on the next input
-
-						nextQuestion.querySelector( 'input' ).focus();
+						console.log('current-next ',self.current)
+					
+								document.querySelector( '.current > input' ).focus();
+						
+					
 
 					
 				}
@@ -418,7 +450,18 @@
 	// the validation function
 	stepsForm.prototype._validade = function() {
 		// current question´s input
-		var input = this.questions[ this.current ].querySelector( 'input' ).value;
+			var isIE9 = false;
+			var input='';		
+		    if($('html').is('.lte-ie9')){
+
+			        isIE9 = true;
+			    }
+			    if(isIE9){
+			    	input = document.querySelector('.current > input');
+			    }else{
+			    	 input = this.questions[ this.current ].querySelector( 'input' ).value;
+			    }
+		
 		if( input === '' || input === '$' || input === '%') {
 			this._showError( 'EMPTYSTR' );
 			return false;
@@ -459,6 +502,8 @@
 
 	// add to global namespace
 	window.stepsForm = stepsForm;
+
+}
 
 })( window );
 

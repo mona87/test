@@ -9,54 +9,19 @@
 		<link rel="stylesheet" type="text/css" href="styles/pdf.css">
 </head>
 <body>
-<div class="please-wait">
-		<center>
-			<image class="please-wait-image" src="images/workstyle_loading_white.gif" alt="loading" />
-			<div class="please-wait-text">Preparing your custom report...</div>
-			<div class="please-wait-sep">&nbsp;</div>
-			<ul id="please-wait-quote-rotator">
-  				<li>
-					<div class="please-wait-quote-container">
-						<div class="please-wait-quote">"I believe this model was the most powerful training in my life as a manager."</div>
-						<div class="please-wait-quote-author">-Manager, Coca-Cola</div>
-					</div>
-  				</li>
-  				<li>
-					<div class="please-wait-quote-container">
-						<div class="please-wait-quote">"I discovered that attending to people's psychological needs is key to maintaining a relationship with my customers."</div>
-						<div class="please-wait-quote-author">-Account Manager, Avaya</div>
-					</div>
-  				</li>
-  				<li>
-					<div class="please-wait-quote-container">
-						<div class="please-wait-quote">I believe this model was the most powerful training in my life as a manager."</div>
-						<div class="please-wait-quote-author">-Manager, Coca-Cola</div>
-					</div>
-  				</li>
-  				<li>
-					<div class="please-wait-quote-container">
-						<div class="please-wait-quote">I believe this model was the most powerful training in my life as a manager."</div>
-						<div class="please-wait-quote-author">-Manager, Coca-Cola</div>
-					</div>
-  				</li>
-
-    		</ul>
-
-		</center>
-	</div>
-	<div class="container" >
+	<div class="container" id="jspdf-container">
 	<nav class="nav__pdf nav--width">
-		<div class="nav--bgImage nav--bgImage--filter"></div>
+		<div class="nav--bgImage nav--bgImage--filter"><image src="http://localhost:5000/images/background2.png" width="1786" /></div>
 		<div class="nav__wrapper">
-			<img class="nav__one nav--logo" height="50" src="images/pdfImages/workstyle-logo.svg"/>
+			<image class="nav__one nav--logo" height="50" src="http://localhost:5000/images/pdfImages/workstyle-logo.svg"></image>
 		</div>
-		<div class="nav__two nav--font-size "><span class="agents"></span> agents</div>
+		<div class="nav__two nav--font-size "><span class="agents">XXXXXXXXX</span> agents</div>
 		<div class="nav-pdf__blue-slash"></div>
-		<div class="nav__three nav--font-size"><span class="training"> </span> training days</div>
+		<div class="nav__three nav--font-size"><span class="training">XXXXXXXXX</span> training days</div>
 		<div class="nav-pdf__blue-slash"></div>
-		<div class="nav__four nav--font-size"><span class="churn"> </span> churn</div>
+		<div class="nav__four nav--font-size"><span class="churn">XXXXXXXXX</span> churn</div>
 		<div class="nav-pdf__blue-slash"></div>
-		<div class="nav__five nav--font-size nav--padding"><span class="cost"></span> cost/her</div>
+		<div class="nav__five nav--font-size nav--padding"><span class="cost">XXXXXXXXX</span> cost/her</div>
 	</nav>
 	<section class="section-one-pdf">
 		<div class="section-one__wrapper">
@@ -92,7 +57,7 @@
 			</div>
 		</div>
 		<div>
-			<img class="section-one__text section-one--img1" height="275"  src="images/pdfImages/section1-text.svg"/>
+			<image class="section-one__text section-one--img1" height="275" src="http://localhost:5000/images/pdfImages/section1-text.svg"></image>
 		</div>
 	</section>
 	<section class="section-one-part-two">
@@ -102,37 +67,33 @@
 	</section>
 	<section class="section-two-pdf section-two--bgImage section-two--filter">
 		<div class="section-two-pdf__wrapper">
-			<img class="section-two-pdf__text" height="365" src="images/pdfImages/section2-text.svg"/>
+			<image class="section-two-pdf__text" height="365" src="http://localhost:5000/images/pdfImages/section2-text.svg"></image>
 		</div>
 	</section>
 	<section class="section-three">
 		<div class="section-three__wrapper">
 			
-			<img class="section-three__text" height="300" src="images/pdfImages/section3-text.svg" />
+			<image class="section-three__text" height="300" src="http://localhost:5000/images/pdfImages/section3-text.svg"></image>
 			<div class="section-three__value"></div>
 		</div>
 	</section>
 	<section class="section-four">
 		<div class="section-four___wrapper">
-			<img class="section-four__text" height="100" src="images/pdfImages/section4-text.svg"/>
-			<img class="section-four__computer" height="750" src="images/pdfImages/computer.svg"/>			
+			<image class="section-four__text" height="100" src="http://localhost:5000/images/pdfImages/section4-text.svg"></image>
+			<image class="section-four__computer" height="550" src="http://localhost:5000/images/pdfImages/computer.png"></image>			
 		</div>
 	</section>
 	<footer class="footer">
 		<div class="footer__wrapper">
-			<img class="footer__text" height="80" src="images/pdfImages/footer.svg" />
+			<image class="footer__text" height="80" src="http://localhost:5000/images/pdfImages/footer.svg"></image>
 		</div>
 	</footer>
 	</div>
-	<!-- <script type="text/javascript" src="bundle.js"></script> -->
-	<script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
-		<script src="scripts/modernizr.custom.js"></script>
-		<script src="scripts/blob-util.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
-	<script type="text/javascript" src="scripts/jspdf.debug.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
-    <!--   <script src="scripts/blob-stream.js"></script>
-     <script src="scripts/blob-pdf.js"></script> -->
-    <script src="scripts/pdf-generator3.js"></script>
+
+	<script type="text/javascript"   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+	<script type="text/javascript" src="scripts/modernizr.custom.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+	<script type="text/javascript" src="scripts/pdf-generator3.js"></script>
+	
 	</body>
 </html>
