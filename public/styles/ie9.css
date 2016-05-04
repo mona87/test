@@ -22,6 +22,48 @@ body{
 
 }
 
+.next-arrow{
+	background-image: url('http://work.style/wp-content/themes/workstyle/dist/images/arrow-right2.png');
+	width: 40px;
+	height: 40px;
+	background-size: 40px;
+	bottom: 55px;
+	left:600px;
+	z-index: 300;
+	position: absolute;
+	cursor: pointer;
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='http://work.style/wp-content/themes/workstyle/dist/images/arrow-right2.png', sizingMethod='scale')";*/
+
+}
+
+.prev-arrow{
+	background-image: url('http://work.style/wp-content/themes/workstyle/dist/images/arrow-left2.png');
+	width: 40px;
+	height: 40px;
+	background-size: 40px;
+	bottom: 55px;
+	left:-50px;
+	position: absolute;
+	z-index: 2;
+	cursor: pointer;
+	display: none;
+    /*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='http://work.style/wp-content/themes/workstyle/dist/images/arrow-left2.png', sizingMethod='scale')";*/
+
+}
+
+
+.next, .next::after{
+	display: none;
+/*	bottom: 50px;
+	position: absolute;*/
+}
+
+.prev, .prev::after{
+/*	bottom: 50px;*/
+	display: none;
+	/*position: absolute;*/
+}
+
 .label-ie{
 	display: none;
 /*	font-weight: lighter;
@@ -365,16 +407,16 @@ footer div{
 }
 
 .prev{
-	position: absolute;
+	/*position: absolute;
 	bottom: 30px;
 	padding-bottom: 55px;
 	-ms-transform:rotate(180deg);
-	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=180);
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=180);*/
 }
 .next{
-	bottom: 55px;
-	padding-bottom: 55px;
-	position: absolute;
+	/*bottom: 55px;*/
+/*	padding-bottom: 55px;
+	position: absolute;*/
 }
 
 .nav-bar-ie{

@@ -1,0 +1,8 @@
+#page1 {
+	position: static;
+	opacity: .8;
+	background-image: url('../images/background.png');
+	-ms-filter: alpha(opacity=100);
+	height: 800px;
+	background-color: inherit;
+}

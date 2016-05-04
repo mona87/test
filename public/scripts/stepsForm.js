@@ -66,19 +66,34 @@
 		// for ie 10 and 11
 		this.isIE11 = !!window.MSStream;
 
+		//ie9
+		this.isIE9 = window.isIE9;
+
 		// questions
 		this.questions = [].slice.call( this.el.querySelectorAll( 'ol.questions > li' ) );
 		// total questions
 		this.questionsCount = this.questions.length;
 		// show first question
 		classie.addClass( this.questions[0], 'current' );
+
+		// next question control
+
+		if(this.isIE9){
+			this.ctrlNext = document.querySelector( '.next-arrow' );
+			console.log('this.ctrlNext ',this.ctrlNext);
+		}else{
+			this.ctrlNext = this.el.querySelector( 'button.next' );
+		}
 		
-		// next question control
-		this.ctrlNext = this.el.querySelector( 'button.next' );
+
 
 		// next question control
-		this.ctrlPrev = this.el.querySelector( 'button.prev' );
-
+		if(this.isIE9){
+			this.ctrlPrev = document.querySelector( '.prev-arrow' );
+		}else{
+			this.ctrlPrev = this.el.querySelector( 'button.prev' );
+		}
+	
 		// progress bar
 		this.progress = this.el.querySelector( 'div.progress' );
 		
@@ -113,13 +128,17 @@
 		firstElInput.addEventListener( 'focus', onFocusStartFn );
 
 		// show next question
+
 		this.ctrlNext.addEventListener( 'click', function( ev ) { 
+		
 			ev.preventDefault();
 			self._nextQuestion(); 
 		} );
 
 		// show prev question
+
 		this.ctrlPrev.addEventListener( 'click', function( ev ) { 
+
 			ev.preventDefault();
 			self._prevQuestion(); 
 		} );
@@ -129,7 +148,7 @@
 			var keyCode = ev.keyCode || ev.which;
 			// enter
 			if( keyCode === 13 ) {
-				console.log('enter');
+				
 				ev.preventDefault();
 	
 				self._nextQuestion();
@@ -190,7 +209,7 @@
 			if(elements.length > 1){
 				this.questionStatus.removeChild(elements[0]);
 			}
-			console.log(this.questionStatus);
+			// console.log(this.questionStatus);
 
 			// add class "show-next" to form element (start animations)
 			classie.addClass( this.el, 'show-next' );
@@ -199,7 +218,7 @@
 			var prevQuestion = this.questions[ this.current ];
 			classie.removeClass( currentQuestion, 'current' );
 			classie.addClass( prevQuestion, 'current' );
-			console.log(currentQuestion);
+			// console.log(currentQuestion);
 
 	
 
@@ -231,7 +250,7 @@
 		            isIE9 = true;
 		    }
 	
-
+		    if(!isIE9){
 			if($('.current > span label').attr('for') === 'q3'){
 				$('.controls div.input-hint:first').show();
 				$('.controls div.input-hint:last').hide();
@@ -241,7 +260,11 @@
 				}else{
 					$('.next, .prev').addClass('move-arrow');	
 				}
-
+				if(isIE9){
+					$('.next').css({'bottom':'53px'}); 
+				}else{
+					$('.next').css({'bottom':'50px'}); 
+				}
 			
 			}
 			else if($('.current > span label').attr('for') === 'q4'){
@@ -262,7 +285,13 @@
 				}else{
 					$('.next, .prev').removeClass('move-arrow');
 				}
+				if(isIE9){
+					$('.next').css({'bottom':'53px'}); 
+				}else{
+					$('.next').css({'bottom':'50px'}); 
+				}
 			}
+		}
 
 	}
 
@@ -343,7 +372,7 @@
 
 						        isIE9 = true;
 						    }
-						    console.log('iseie9 ', isIE9);
+						    // console.log('iseie9 ', isIE9);
 					if(!isIE9){
 						nextQuestion.querySelector( 'input' ).focus();
 					}else{
@@ -351,7 +380,7 @@
 					}
 
 					self.current = self.questions.length - 1 ;
-					console.log('current-next ',self.current)
+					// console.log('current-next ',self.current)
 
 					
 					// self._submit();
@@ -361,7 +390,7 @@
 					self.currentNum.innerHTML = self.nextQuestionNum.innerHTML;
 					// self.questionStatus.removeChild( self.nextQuestionNum );
 					// force the focus on the next input
-						console.log('current-next ',self.current)
+						// console.log('current-next ',self.current)
 					
 								document.querySelector( '.current > input' ).focus();
 						
@@ -457,7 +486,7 @@
 			        isIE9 = true;
 			    }
 			    if(isIE9){
-			    	input = document.querySelector('.current > input');
+			    	input = document.querySelector('.current > input').value;
 			    }else{
 			    	 input = this.questions[ this.current ].querySelector( 'input' ).value;
 			    }

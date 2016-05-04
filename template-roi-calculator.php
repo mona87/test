@@ -14,12 +14,12 @@ Template Name: ROI Calculator
 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/normalize.css" />
-	
+			<link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/main.css"/>
 	
 		<!--[if gte IE 9]>
 			
 		<!--><link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/component.css" />
-			<link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/main.css"/>
+		
 		<!--<![endif]-->
 			<!--[if IE 9]><link rel="stylesheet" type="text/css" href="http://work.style/wp-content/themes/workstyle/dist/styles/ie9.css"><![endif]-->
 	
@@ -251,6 +251,7 @@ Template Name: ROI Calculator
 	</div>
 
 			<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
 			<!-- <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script> -->
 			<!-- <script type="javascript" src="https://code.jquery.com/jquery-migrate-1.3.0.js "></script> -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>

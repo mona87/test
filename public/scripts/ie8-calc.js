@@ -27,6 +27,7 @@ $(document).ready(function() {
     var ROI = 0;
 
     if ($('html').is('.lte-ie8')) {
+    	isIE8 = true;
 
         $('.open-ie8').click(function() {
         	$('#navbar').show();
@@ -42,6 +43,7 @@ $(document).ready(function() {
         $('.current-input > input').focus();
 
         $('input').on('keydown', function(e) {
+       
         	$('.current-input > .label-ie').hide();
         	if ($('.current-input > input').attr('name') === 'q4') {
            	 	if ($('#q4').val().charAt(0) !== '$') {
@@ -53,7 +55,7 @@ $(document).ready(function() {
         	    	
         	    	 getValues();
             		nextQuestion(e);
-            		 // showBlueArrow();
+            		
        		 }
         });
 
@@ -61,17 +63,30 @@ $(document).ready(function() {
         	
         		 getValues();    
         		 nextQuestion(e);
-        		  // showBlueArrow();
+        		
         		
         		  
+        });
+        $('.blue-arrow').on('click', function(e) { 
+            
+                 getValues();    
+                 nextQuestion(e);
+                showBlueArrow();
+                
+                  
         });
 
         $('.prev-arrow').on('click', function(e) { 
         	
         		 getValues();     
         		 prevQuestion(e);
-        		 // showBlueArrow();
+        	
         		     
+        });
+
+        $('input').on('keyup', function() {
+
+            showBlueArrow();
         });
 
         function slide() {
@@ -356,7 +371,8 @@ $(document).ready(function() {
     $('.close-modal, .close-x span').click(function() {
         $('.modal-background').hide();
     });
-
+    console.log('isIE88', isIE8)
+    if(isIE8){
     $('#report-button').click(function(e) {
         e.preventDefault();
 
@@ -391,14 +407,44 @@ $(document).ready(function() {
       	if( firstName.length > 0  && lastName.length > 0 && email.length > 0){
       		console.log('email')
    		// 
-                          $('.modal-background').css({"display":"block"});
-   				jQuery.support.cors = true;
+                          // $('.modal-background').css({"display":"block"});
+   			
+                // if (window.XDomainRequest) {
+                //     // Use Microsoft XDR
+                //     var xdr = new XDomainRequest();
+                //     xdr.open("post", 'http://my.work.style/api/mail-roi-report/');
+                //     xdr.send(
+                //         JSON.stringify({
+                //         "data": {
+                //             "first_name": firstName,
+                //             "last_name": lastName,
+                //             "email": email,
+                //             "num_agents": agentNum,
+                //             "training_days": trainingDaysNum,
+                //             "percent_churn": churnNum,
+                //             "cost_per_hour": costPerHour,
+                //             "total_inefficiency_cost": 2000000,
+                //             "roi_percent": ROI,
+                //             "pre_hire_training_cost": 2565.00,
+                //             "new_hire_variance_cost": 10000.00,
+                //             "total_losses_per_hire": 12565.00
+                //             }
+                //         })
+                //     );
+                //     xdr.onerror = function(){
+                //         console.log('error')
+                //     };
+                //     xdr.onload = function(){
+                //         console.log(xdr.responseText);
+                //     };
+                // }
+                $.support.cors = true;
 		        $.ajax({
 		            url: 'https://my.work.style/api/mail-roi-report/',
 		            type: 'POST',
 		            crossDomain: true,
 		            dataType: "json",
-		            contentType: 'application/json',
+		            contentType:  'application/json',
 		            data: JSON.stringify({
 		                "data": {
 		                    "first_name": firstName,
@@ -427,5 +473,6 @@ $(document).ready(function() {
 
 		    }
 		});
+	}
 
 });
